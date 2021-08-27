@@ -8,3 +8,7 @@ disabled = true
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
+
+[character]
+success_symbol = "🐧💙 [❯](bold green)"
+error_symbol = "🐧💔 [❯](bold red)"
