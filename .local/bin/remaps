@@ -1,0 +1,5 @@
+#!/bin/sh
+
+setxkbmap \
+  -layout us,cz \
+  -option grp:shifts_toggle \

@@ -1,0 +1,14 @@
+#
+# Alacritty config
+#
+
+font:
+  normal:
+    family: monospace
+  size: 10.5
+
+  colors:
+    primary: 0x1d2021
+
+selection:
+  save_to_clipboard: false
