@@ -5,7 +5,7 @@
 font:
   normal:
     family: monospace
-  size: 10.5
+  size: 10.01
 
   colors:
     primary: 0x1d2021
