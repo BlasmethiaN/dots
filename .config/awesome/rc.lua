@@ -44,7 +44,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
-editor = os.getenv("EDITOR") or "nano"
+editor = os.getenv("nvim") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -82,18 +82,18 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 tag.connect_signal("request::default_layouts", function()
     awful.layout.append_default_layouts({
         awful.layout.suit.tile,
-        awful.layout.suit.floating,
-        awful.layout.suit.tile.left,
-        awful.layout.suit.tile.bottom,
-        awful.layout.suit.tile.top,
-        awful.layout.suit.fair,
-        awful.layout.suit.fair.horizontal,
-        awful.layout.suit.spiral,
-        awful.layout.suit.spiral.dwindle,
-        awful.layout.suit.max,
-        awful.layout.suit.max.fullscreen,
-        awful.layout.suit.magnifier,
-        awful.layout.suit.corner.nw,
+        -- awful.layout.suit.floating,
+        -- awful.layout.suit.tile.left,
+        -- awful.layout.suit.tile.bottom,
+        -- awful.layout.suit.tile.top,
+        -- awful.layout.suit.fair,
+        -- awful.layout.suit.fair.horizontal,
+        -- awful.layout.suit.spiral,
+        -- awful.layout.suit.spiral.dwindle,
+        -- awful.layout.suit.max,
+        -- awful.layout.suit.max.fullscreen,
+        -- awful.layout.suit.magnifier,
+        -- awful.layout.suit.corner.nw,
     })
 end)
 -- }}}
@@ -218,8 +218,9 @@ awful.keyboard.append_global_keybindings({
               {description = "lua execute prompt", group = "awesome"}),
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"}),
+    awful.key({ modkey },            "r",     function()
+    awful.util.spawn("dmenu_run") end,
+              {description = "run dmenu", group = "launcher"}),
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
 })
@@ -401,7 +402,7 @@ client.connect_signal("request::default_keybindings", function()
                 c:raise()
             end,
             {description = "toggle fullscreen", group = "client"}),
-        awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
+        awful.key({ modkey,    }, "q",      function (c) c:kill()                         end,
                 {description = "close", group = "client"}),
         awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
                 {description = "toggle floating", group = "client"}),
@@ -479,12 +480,12 @@ ruled.client.connect_signal("request::rules", function()
         properties = { floating = true }
     }
 
-    -- Add titlebars to normal clients and dialogs
-    ruled.client.append_rule {
-        id         = "titlebars",
-        rule_any   = { type = { "normal", "dialog" } },
-        properties = { titlebars_enabled = true      }
-    }
+    -- -- Add titlebars to normal clients and dialogs
+    -- ruled.client.append_rule {
+    --     id         = "titlebars",
+    --     rule_any   = { type = { "normal", "dialog" } },
+    --     properties = { titlebars_enabled = true      }
+    -- }
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- ruled.client.append_rule {
@@ -495,44 +496,44 @@ end)
 
 -- }}}
 
--- {{{ Titlebars
--- Add a titlebar if titlebars_enabled is set to true in the rules.
-client.connect_signal("request::titlebars", function(c)
-    -- buttons for the titlebar
-    local buttons = {
-        awful.button({ }, 1, function()
-            c:activate { context = "titlebar", action = "mouse_move"  }
-        end),
-        awful.button({ }, 3, function()
-            c:activate { context = "titlebar", action = "mouse_resize"}
-        end),
-    }
+-- -- {{{ Titlebars
+-- -- Add a titlebar if titlebars_enabled is set to true in the rules.
+-- client.connect_signal("request::titlebars", function(c)
+--     -- buttons for the titlebar
+--     local buttons = {
+--         awful.button({ }, 1, function()
+--             c:activate { context = "titlebar", action = "mouse_move"  }
+--         end),
+--         awful.button({ }, 3, function()
+-- --             c:activate { context = "titlebar", action = "mouse_resize"}
+--         end),
+--     }
 
-    awful.titlebar(c).widget = {
-        { -- Left
-            awful.titlebar.widget.iconwidget(c),
-            buttons = buttons,
-            layout  = wibox.layout.fixed.horizontal
-        },
-        { -- Middle
-            { -- Title
-                align  = "center",
-                widget = awful.titlebar.widget.titlewidget(c)
-            },
-            buttons = buttons,
-            layout  = wibox.layout.flex.horizontal
-        },
-        { -- Right
-            awful.titlebar.widget.floatingbutton (c),
-            awful.titlebar.widget.maximizedbutton(c),
-            awful.titlebar.widget.stickybutton   (c),
-            awful.titlebar.widget.ontopbutton    (c),
-            awful.titlebar.widget.closebutton    (c),
-            layout = wibox.layout.fixed.horizontal()
-        },
-        layout = wibox.layout.align.horizontal
-    }
-end)
+--     awful.titlebar(c).widget = {
+--         { -- Left
+--             awful.titlebar.widget.iconwidget(c),
+--             buttons = buttons,
+--             layout  = wibox.layout.fixed.horizontal
+--         },
+--         { -- Middle
+--             { -- Title
+--                 align  = "center",
+--                 widget = awful.titlebar.widget.titlewidget(c)
+--             },
+--             buttons = buttons,
+--             layout  = wibox.layout.flex.horizontal
+--         },
+--         { -- Right
+--             awful.titlebar.widget.floatingbutton (c),
+--             awful.titlebar.widget.maximizedbutton(c),
+--             awful.titlebar.widget.stickybutton   (c),
+--             awful.titlebar.widget.ontopbutton    (c),
+--             awful.titlebar.widget.closebutton    (c),
+--             layout = wibox.layout.fixed.horizontal()
+--         },
+--         layout = wibox.layout.align.horizontal
+--     }
+-- end)
 
 -- {{{ Notifications
 
@@ -554,10 +555,14 @@ end)
 -- }}}
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-    c:activate { context = "mouse_enter", raise = false }
-end)
+-- client.connect_signal("mouse::enter", function(c)
+--     c:activate { context = "mouse_enter", raise = false }
+-- end)
+
+-- Gaps
+beautiful.useless_gap = 5.2
 
 --autostart applications
 awful.spawn.with_shell("wallpaper")
 awful.spawn.with_shell("remaps")
+awful.spawn.with_shell("picom")

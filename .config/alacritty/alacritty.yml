@@ -12,3 +12,6 @@ font:
 
 selection:
   save_to_clipboard: false
+
+background_opacity: 0.87
+
