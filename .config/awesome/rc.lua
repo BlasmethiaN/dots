@@ -19,6 +19,9 @@ local ruled = require("ruled")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- Custom widgets
+local battery_widget = require("widgets.battery")
+
 -- Global variables
 require("globals")
 
@@ -39,7 +42,8 @@ end)
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+local theme_path = string.format('%s/.config/awesome/themes/%s/theme.lua', os.getenv('HOME'), 'default')
+beautiful.init(theme_path)
 
 -- {{{ Tag
 -- Table of layouts to cover with awful.layout.inc, order matters.
@@ -64,7 +68,8 @@ local mytextclock = wibox.widget.textclock()
 
 screen.connect_signal("request::desktop_decoration", function(s)
     -- Each screen has its own tag table.
-    awful.tag({"1", "2", "3", "4", "5", "6", "7", "8", "9"}, s, awful.layout.layouts[1])
+	awful.tag({'🔧', '🔍', '🦄', '🥴', '💅', '🤑', '👾', '📺', '🚀'}, s, awful.layout.layouts[1])
+
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -145,6 +150,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
+            battery_widget,
             VOLUME_CFG.widget,
             wibox.widget.systray(),
             mytextclock,
@@ -245,3 +251,4 @@ end)
 awful.spawn.with_shell("wallpaper")
 awful.spawn.with_shell("remaps")
 awful.spawn.with_shell("picom")
+

@@ -24,9 +24,14 @@ end, {
   description = "open a terminal",
   group = "launcher"
 }), awful.key({MODKEY}, "r", function()
-  awful.util.spawn("dmenu_run")
+  awful.util.spawn("rofi -show run")
 end, {
-  description = "run dmenu",
+  description = "rofi run prompt",
+  group = "launcher"
+}), awful.key({MODKEY}, "p", function()
+  awful.util.spawn("rofi -show")
+end, {
+  description = "rofi window switch",
   group = "launcher"
 }))
 
