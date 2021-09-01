@@ -186,7 +186,7 @@ function vwidget:init(args)
     self.mclick = args.mclick or "pavucontrol"
     self.rclick = args.rclick or self.show_menu
 
-    self.font = args.font        or nil
+    self.font = "JetBrans Mono Medium 10"        or nil
     self.widget = args.widget    or (self:create_widget(args)  or self.widget)
     self.tooltip = args.tooltip and (self:create_tooltip(args) or self.tooltip)
 
