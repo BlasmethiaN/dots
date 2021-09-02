@@ -3,6 +3,11 @@ local gears = require("gears")
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
+-- Theme handling library
+local beautiful = require("beautiful")
+
+local volume = require("util.volume")
+
 require("globals")
 
 local keys = {global_keys = {}, client_keys = {}}
@@ -226,17 +231,20 @@ end, {
   description = "select area and copy screenshot",
   group = "custom"
 }), awful.key({}, "XF86AudioRaiseVolume", function()
-  VOLUME_CFG:up()
+  volume.up()
+  beautiful.update_volume()
 end, {
   description = "raise volume",
   group = "audio"
 }), awful.key({}, "XF86AudioLowerVolume", function()
-  VOLUME_CFG:down()
+  volume.down()
+  beautiful.update_volume()
 end, {
   description = "lower volume",
   group = "audio"
 }), awful.key({}, "XF86AudioMute", function()
-  VOLUME_CFG:toggle()
+  volume.toggle()
+  beautiful.update_volume()
 end, {
   description = "mute output",
   group = "audio"

@@ -48,96 +48,27 @@ beautiful.init(theme_path)
 -- {{{ Tag
 -- Table of layouts to cover with awful.layout.inc, order matters.
 tag.connect_signal("request::default_layouts", function()
-    awful.layout.append_default_layouts({awful.layout.suit.tile, awful.layout.suit.tile.left,
-                                         awful.layout.suit.tile.bottom, awful.layout.suit.tile.top,
-                                         awful.layout.suit.fair, awful.layout.suit.fair.horizontal,
-                                         awful.layout.suit.spiral, awful.layout.suit.spiral.dwindle,
-                                         awful.layout.suit.max, awful.layout.suit.max.fullscreen,
-                                         awful.layout.suit.magnifier, awful.layout.suit.corner.nw,
-                                         awful.layout.suit.floating})
+    awful.layout.append_default_layouts({
+      awful.layout.suit.tile,
+      awful.layout.suit.tile.bottom,
+      -- awful.layout.suit.tile.left,
+      -- awful.layout.suit.tile.top,
+      -- awful.layout.suit.fair,
+      -- awful.layout.suit.fair.horizontal,
+      -- awful.layout.suit.spiral,
+      -- awful.layout.suit.spiral.dwindle,
+      -- awful.layout.suit.max,
+      -- awful.layout.suit.max.fullscreen,
+      -- awful.layout.suit.magnifier,
+      -- awful.layout.suit.corner.nw,
+      -- awful.layout.suit.floating,
+  })
 end)
 -- }}}
 
--- {{{ Wibar
-
--- Keyboard map indicator and switcher
-local mykeyboardlayout = awful.widget.keyboardlayout()
-
--- Create a textclock widget
-local mytextclock = wibox.widget.textclock()
-
-screen.connect_signal("request::desktop_decoration", function(s)
-    -- Each screen has its own tag table.
-    -- awful.tag({"1", "2", "3", "4", "5", "6", "7", "8", "9"}, s, awful.layout.layouts[1])
-	awful.tag({'🔧', '🔍', '🦄', '🥴', '💅', '🤑', '👾', '📺', '🚀'}, s, awful.layout.layouts[1])
-
-
-    -- Create a promptbox for each screen
-    s.mypromptbox = awful.widget.prompt()
-
-    -- Create an imagebox widget which will contain an icon indicating which layout we're using.
-    -- We need one layoutbox per screen.
-    s.mylayoutbox = awful.widget.layoutbox {
-        screen = s,
-        buttons = {awful.button({}, 1, function()
-            awful.layout.inc(1)
-        end), awful.button({}, 3, function()
-            awful.layout.inc(-1)
-        end), awful.button({}, 4, function()
-            awful.layout.inc(-1)
-        end), awful.button({}, 5, function()
-            awful.layout.inc(1)
-        end)}
-    }
-
-    -- Create a taglist widget
-    s.mytaglist = awful.widget.taglist {
-        screen = s,
-        filter = awful.widget.taglist.filter.all,
-        buttons = {awful.button({}, 1, function(t)
-            t:view_only()
-        end), awful.button({MODKEY}, 1, function(t)
-            if client.focus then
-                client.focus:move_to_tag(t)
-            end
-        end), awful.button({}, 3, awful.tag.viewtoggle), awful.button({MODKEY}, 3, function(t)
-            if client.focus then
-                client.focus:toggle_tag(t)
-            end
-        end), awful.button({}, 4, function(t)
-            awful.tag.viewprev(t.screen)
-        end), awful.button({}, 5, function(t)
-            awful.tag.viewnext(t.screen)
-        end)}
-    }
-
-    -- Create the wibox
-    s.mywibox = awful.wibar({
-        position = "top",
-        screen = s
-    })
-
-    -- Add widgets to the wibox
-    s.mywibox.widget = {
-        layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            s.mytaglist,
-            s.mypromptbox
-        },
-        s.mytasklist, -- Middle widget
-        { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
-            battery_widget,
-            VOLUME_CFG.widget,
-            wibox.widget.systray(),
-            mytextclock,
-            -- s.mylayoutbox
-        }
-    }
+awful.screen.connect_for_each_screen(function(s)
+	beautiful.on_screen_connect(s)
 end)
--- }}}
 
 client.connect_signal("request::default_mousebindings", function()
     awful.mouse.append_client_mousebindings({awful.button({}, 1, function(c)
@@ -225,6 +156,8 @@ naughty.connect_signal("request::display", function(n)
 end)
 
 -- }}}
+
+
 
 -- Autostart applications
 awful.spawn.with_shell("wallpaper")
