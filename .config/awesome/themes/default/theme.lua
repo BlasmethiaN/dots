@@ -60,10 +60,10 @@ theme.color = {
   }
 }
 
-theme.font = 'monospace 10'
+theme.font = 'monospace 10.5'
 
 theme.fonts = {
-  icon = 'monospace 13',
+  icon = 'monospace 15',
   widget = theme.font
 }
 
@@ -86,8 +86,8 @@ theme.taglist_fg_empty = theme.color.polar_night[3]
 theme.taglist_fg_focus = theme.color.one_dark.dark
 
 theme.useless_gap = dpi(7)
-theme.border_width = dpi(1)
-theme.border_color_normal = theme.color.femboy[5]
+theme.border_width = dpi(1.3)
+theme.border_color_normal = theme.color.one_dark.blue
 theme.border_color_active = theme.color.femboy[1]
 theme.border_color_marked = '#91231c'
 
@@ -128,6 +128,13 @@ rnotification.connect_signal(
   end
 )
 
+-- Separators
+local spr = wibox.widget.textbox('     ')
+local half_spr = wibox.widget.textbox('  ')
+local split_spr = wibox.widget.textbox(' ')
+
+-- Widgets {{{
+
 -- Volume widget
 local volume = create_volume_widget(theme.color.femboy[5], theme.color.polar_night[2], theme.fonts.icon)
 local volume_widget = layout.fixed_horizontal(layout.pad(volume.widget))
@@ -136,15 +143,35 @@ theme.update_volume = volume.update_volume
 -- Keyboard map indicator and switcher
 local mykeyboardlayout = awful.widget.keyboardlayout()
 
--- Create a textclock widget
-local mytextclock = wibox.widget.textclock()
+-- Battery
+local baticon =
+  wibox.widget.textbox(
+  string.format('<span color="%s" font="' .. theme.fonts.icon .. '"></span>', theme.color.one_dark.blue)
+)
+local bat =
+  awful.widget.watch(
+  [[bash -c "echo $(cat /sys/class/power_supply/BAT1/capacity)%"]],
+  60,
+  function(widget, stdout)
+    widget:set_markup(
+      '<span color="' .. theme.color.one_dark.blue .. '" font="' .. theme.fonts.widget .. '"> ' .. stdout .. '%</span> '
+    )
+  end
+)
+
+-- Clock
+local clockicon =
+  wibox.widget.textbox(
+  string.format('<span color="%s" font="' .. theme.fonts.icon .. '"> </span>', theme.color.one_dark.red)
+)
+local clock =
+  wibox.widget.textclock(
+  '<span font="' .. theme.fonts.widget .. '" color="' .. theme.color.one_dark.red .. '">%R</span>'
+)
 
 theme.on_screen_connect = function(s)
   -- Tags
   awful.tag({'1', '2', '3', '4', '5', '6', '7', '8', '9'}, s, awful.layout.layouts[1])
-
-  -- Create a promptbox for each screen
-  s.mypromptbox = awful.widget.prompt()
 
   -- Create a taglist widget
   s.mytaglist =
@@ -214,6 +241,8 @@ theme.on_screen_connect = function(s)
     }
   }
 
+  -- }}}
+
   -- Create the wibox
   s.mywibox =
     awful.wibar(
@@ -239,8 +268,31 @@ theme.on_screen_connect = function(s)
       -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       mykeyboardlayout,
+      half_spr,
+      {
+        {
+          layout = wibox.layout.fixed.horizontal,
+          half_spr,
+          baticon,
+          bat,
+          half_spr
+        },
+        widget = wibox.container.background
+      },
+      half_spr,
+      {
+        {
+          layout = wibox.layout.fixed.horizontal,
+          half_spr,
+          clockicon,
+          clock,
+          half_spr
+        },
+        widget = wibox.container.background
+      },
       volume_widget,
-      wibox.widget.systray()
+      wibox.widget.systray(),
+      half_spr
     }
   }
 end

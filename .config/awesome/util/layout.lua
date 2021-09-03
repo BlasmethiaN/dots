@@ -1,10 +1,10 @@
 -- Standard awesome library
-local gears = require("gears")
-local wibox = require("wibox")
+local gears = require('gears')
+local wibox = require('wibox')
 
 local layout = {}
 
-layout.padding = wibox.widget.textbox("    ")
+layout.padding = wibox.widget.textbox('    ')
 
 local padding = {layout.padding}
 
@@ -17,7 +17,7 @@ layout.fixed_horizontal = function(widgets)
 end
 
 layout.create_span = function(params)
-  return '<span color="'..params.color..'" font="'..params.font..'">'..params.content..'</span>'
+  return '<span color="' .. params.color .. '" font="' .. params.font .. '">' .. params.content .. '</span>'
 end
 
 return layout

@@ -162,5 +162,5 @@ end)
 -- Autostart applications
 awful.spawn.with_shell("wallpaper")
 awful.spawn.with_shell("remaps")
-awful.spawn.with_shell("picom")
+awful.spawn.with_shell("picom --experimental-backends")
 

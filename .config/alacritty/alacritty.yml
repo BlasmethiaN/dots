@@ -7,11 +7,13 @@ font:
     family: monospace
   size: 10.01
 
-  colors:
-    primary: 0x1d2021
+colors:
+  primary: 
+    background: '0x282c34'
+    foreground: '0xbbc2cf'
 
 selection:
   save_to_clipboard: false
 
-background_opacity: 0.87
+# background_opacity: 1
 
