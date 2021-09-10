@@ -51,8 +51,17 @@ theme.color = {
     blue = '#61afef',
     green = '#98c379'
   },
+  material = {
+    blue = '#42a5f5',
+    yellow = '#ffee58',
+    cyan = '#84ffff',
+    red = '#ef5350',
+    orange = '#ffab40',
+    purple = '#ea80fc',
+    grey = '#e0e0e0'
+  },
   femboy = {
-    '#f7c0e5',
+    '#ffcce6',
     '#edaaf3',
     '#d4a1f3',
     '#be9cec',
@@ -60,10 +69,10 @@ theme.color = {
   }
 }
 
-theme.font = 'monospace 10.5'
+theme.font = 'monospace 11'
 
 theme.fonts = {
-  icon = 'monospace 15',
+  icon = 'Font Awesome 14',
   widget = theme.font
 }
 
@@ -84,6 +93,7 @@ theme.taglist_fg_occupied = theme.color.femboy[1]
 theme.taglist_fg_urgent = theme.color.one_dark.dark
 theme.taglist_fg_empty = theme.color.polar_night[3]
 theme.taglist_fg_focus = theme.color.one_dark.dark
+theme.taglist_font = theme.fonts.icon
 
 theme.useless_gap = dpi(7)
 theme.border_width = dpi(1.3)
@@ -118,6 +128,8 @@ theme.layout_cornerse = themes_path .. 'default/layouts/cornersew.png'
 
 theme.icon_theme = nil
 
+theme.spacing = {small = dpi(10), normal = dpi(15)}
+
 rnotification.connect_signal(
   'request::rules',
   function()
@@ -136,7 +148,12 @@ local split_spr = wibox.widget.textbox(' ')
 -- Widgets {{{
 
 -- Volume widget
-local volume = create_volume_widget(theme.color.femboy[5], theme.color.polar_night[2], theme.fonts.icon)
+local volume =
+  create_volume_widget(
+  {primary = theme.color.material.purple, background = theme.color.polar_night[2], muted = theme.color.material.grey},
+  theme.fonts.icon,
+  theme.spacing.small
+)
 local volume_widget = layout.fixed_horizontal(layout.pad(volume.widget))
 theme.update_volume = volume.update_volume
 
@@ -146,7 +163,7 @@ local mykeyboardlayout = awful.widget.keyboardlayout()
 -- Battery
 local baticon =
   wibox.widget.textbox(
-  string.format('<span color="%s" font="' .. theme.fonts.icon .. '"></span>', theme.color.one_dark.blue)
+  string.format('<span color="%s" font="' .. theme.fonts.icon .. '"></span>', theme.color.material.cyan)
 )
 local bat =
   awful.widget.watch(
@@ -154,24 +171,34 @@ local bat =
   60,
   function(widget, stdout)
     widget:set_markup(
-      '<span color="' .. theme.color.one_dark.blue .. '" font="' .. theme.fonts.widget .. '"> ' .. stdout .. '%</span> '
+      '<span color="' .. theme.color.material.cyan .. '" font="' .. theme.fonts.widget .. '"> ' .. stdout .. '%</span> '
     )
   end
+)
+
+-- Calendar
+local calendaricon =
+  wibox.widget.textbox(
+  string.format('<span color="%s" font="' .. theme.fonts.icon .. '"></span>', theme.color.material.yellow)
+)
+local calendar =
+  wibox.widget.textclock(
+  '<span font="' .. theme.fonts.widget .. '" color="' .. theme.color.material.yellow .. '"> %-d %b %Y (%a)</span>'
 )
 
 -- Clock
 local clockicon =
   wibox.widget.textbox(
-  string.format('<span color="%s" font="' .. theme.fonts.icon .. '"> </span>', theme.color.one_dark.red)
+  string.format('<span color="%s" font="' .. theme.fonts.icon .. '"> </span>', theme.color.material.orange)
 )
 local clock =
   wibox.widget.textclock(
-  '<span font="' .. theme.fonts.widget .. '" color="' .. theme.color.one_dark.red .. '">%R</span>'
+  '<span font="' .. theme.fonts.widget .. '" color="' .. theme.color.material.orange .. '">%R</span>'
 )
 
 theme.on_screen_connect = function(s)
   -- Tags
-  awful.tag({'1', '2', '3', '4', '5', '6', '7', '8', '9'}, s, awful.layout.layouts[1])
+  awful.tag({'', '', '', '', '', '', '', '', ''}, s, awful.layout.layouts[1])
 
   -- Create a taglist widget
   s.mytaglist =
@@ -269,6 +296,8 @@ theme.on_screen_connect = function(s)
       layout = wibox.layout.fixed.horizontal,
       mykeyboardlayout,
       half_spr,
+      wibox.widget.systray(),
+      half_spr,
       {
         {
           layout = wibox.layout.fixed.horizontal,
@@ -279,6 +308,7 @@ theme.on_screen_connect = function(s)
         },
         widget = wibox.container.background
       },
+      volume_widget,
       half_spr,
       {
         {
@@ -290,8 +320,17 @@ theme.on_screen_connect = function(s)
         },
         widget = wibox.container.background
       },
-      volume_widget,
-      wibox.widget.systray(),
+      half_spr,
+      {
+        {
+          layout = wibox.layout.fixed.horizontal,
+          half_spr,
+          calendaricon,
+          calendar,
+          half_spr
+        },
+        widget = wibox.container.background
+      },
       half_spr
     }
   }
