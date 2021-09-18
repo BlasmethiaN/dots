@@ -96,7 +96,7 @@ theme.taglist_fg_focus = theme.color.one_dark.dark
 theme.taglist_font = theme.fonts.icon
 
 theme.useless_gap = dpi(7)
-theme.border_width = dpi(1.3)
+theme.border_width = dpi(0)
 theme.border_color_normal = theme.color.one_dark.blue
 theme.border_color_active = theme.color.femboy[1]
 theme.border_color_marked = '#91231c'
@@ -147,6 +147,10 @@ local split_spr = wibox.widget.textbox(' ')
 
 -- Widgets {{{
 
+local wrap_widget = function(widget)
+  return layout.add_margin(layout.fixed_horizontal(widget), {left = theme.spacing.normal, right = theme.spacing.normal})
+end
+
 -- Volume widget
 local volume =
   create_volume_widget(
@@ -157,8 +161,15 @@ local volume =
 local volume_widget = layout.fixed_horizontal(layout.pad(volume.widget))
 theme.update_volume = volume.update_volume
 
--- Keyboard map indicator and switcher
-local mykeyboardlayout = awful.widget.keyboardlayout()
+-- Keyboard layout widget
+local create_keyboard_layout_widget = require('widgets.keyboard_layout')
+local keyboard_layout =
+  create_keyboard_layout_widget(
+  {primary = theme.color.material.blue},
+  {icon = theme.fonts.icon, widget = theme.fonts.widget},
+  theme.spacing.small
+)
+local keyboard_layout_widget = wrap_widget(keyboard_layout.widget)
 
 -- Battery
 local baticon =
@@ -294,7 +305,7 @@ theme.on_screen_connect = function(s)
     {
       -- Right widgets
       layout = wibox.layout.fixed.horizontal,
-      mykeyboardlayout,
+      keyboard_layout_widget,
       half_spr,
       wibox.widget.systray(),
       half_spr,

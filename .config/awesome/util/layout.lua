@@ -23,6 +23,17 @@ layout.horizontal_spacer = function(spacing)
   }
 end
 
+layout.add_margin = function(widgets, margin)
+  return {
+    widgets,
+    top = margin.top or 0,
+    right = margin.right or 0,
+    bottom = margin.bottom or 0,
+    left = margin.left or 0,
+    widget = wibox.container.margin
+  }
+end
+
 layout.create_span = function(params)
   return '<span color="' .. params.color .. '" font="' .. params.font .. '">' .. params.content .. '</span>'
 end
