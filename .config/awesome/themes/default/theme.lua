@@ -58,7 +58,8 @@ theme.color = {
     red = '#ef5350',
     orange = '#ffab40',
     purple = '#ea80fc',
-    grey = '#e0e0e0'
+    grey = '#e0e0e0',
+    green = '#64DD17'
   },
   femboy = {
     '#ffcce6',
@@ -151,6 +152,19 @@ local wrap_widget = function(widget)
   return layout.add_margin(layout.fixed_horizontal(widget), {left = theme.spacing.normal, right = theme.spacing.normal})
 end
 
+-- Wifi widget
+local create_wifi_widget = require('widgets.wifi')
+local wifi =
+  create_wifi_widget(
+  {
+    primary = theme.color.material.green,
+    wifi_disconnected = theme.color.material.red,
+    wifi_connecting = theme.color.material.grey},
+  {icon = theme.fonts.icon, widget = theme.fonts.widget},
+  theme.spacing.small
+)
+local wifi_widget = wrap_widget(wifi.widget)
+
 -- Volume widget
 local volume =
   create_volume_widget(
@@ -171,21 +185,15 @@ local keyboard_layout =
 )
 local keyboard_layout_widget = wrap_widget(keyboard_layout.widget)
 
--- Battery
-local baticon =
-  wibox.widget.textbox(
-  string.format('<span color="%s" font="' .. theme.fonts.icon .. '"></span>', theme.color.material.cyan)
+-- Battery widget
+local create_battery_widget = require('widgets.battery')
+local battery =
+  create_battery_widget(
+  {primary = theme.color.material.cyan, battery_empty = theme.color.material.red},
+  {icon = theme.fonts.icon, widget = theme.fonts.widget},
+  theme.spacing.small
 )
-local bat =
-  awful.widget.watch(
-  [[bash -c "echo $(cat /sys/class/power_supply/BAT1/capacity)%"]],
-  60,
-  function(widget, stdout)
-    widget:set_markup(
-      '<span color="' .. theme.color.material.cyan .. '" font="' .. theme.fonts.widget .. '"> ' .. stdout .. '%</span> '
-    )
-  end
-)
+local battery_widget = wrap_widget(battery.widget)
 
 -- Calendar
 local calendaricon =
@@ -308,17 +316,8 @@ theme.on_screen_connect = function(s)
       keyboard_layout_widget,
       half_spr,
       wibox.widget.systray(),
-      half_spr,
-      {
-        {
-          layout = wibox.layout.fixed.horizontal,
-          half_spr,
-          baticon,
-          bat,
-          half_spr
-        },
-        widget = wibox.container.background
-      },
+      wifi_widget,
+      battery_widget,
       volume_widget,
       half_spr,
       {

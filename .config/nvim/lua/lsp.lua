@@ -1,6 +1,5 @@
 require('treesitter')
 
--- Defaults
 local lsp = require('lspconfig')
 
 -- lsp.cssls.setup {}
@@ -12,16 +11,6 @@ lsp.hls.setup {
     }
   }
 }
-lsp.ccls.setup {
-  init_options = {
-    compilationDatabaseDirectory = 'build',
-    index = {
-      threads = 0
-    },
-    clang = {
-      excludeArgs = {'-frounding-math'}
-    }
-  }
-}
 -- lsp.html.setup {}
 -- lsp.jsonls.setup {}
+lsp.texlab.setup {}

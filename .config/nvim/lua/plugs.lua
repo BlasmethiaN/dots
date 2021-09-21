@@ -27,6 +27,7 @@ Plug('neovim/nvim-lspconfig')
 
 Plug('kyazdani42/nvim-web-devicons')
 Plug('iamcco/markdown-preview.nvim', {run = 'cd app && yarn install'})
+Plug('xuhdev/vim-latex-live-preview', {ft = 'tex'})
 
 Plug('morhetz/gruvbox')
 Plug('joshdick/onedark.vim')
