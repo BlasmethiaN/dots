@@ -59,7 +59,7 @@ theme.color = {
     orange = '#ffab40',
     purple = '#ea80fc',
     grey = '#e0e0e0',
-    green = '#64DD17'
+    green = '#00E676'
   },
   femboy = {
     '#ffcce6',

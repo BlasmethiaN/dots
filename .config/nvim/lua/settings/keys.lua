@@ -13,9 +13,6 @@ local normal = 'n'
 vim.g.mapleader = ' '
 bind(normal, '<space>', nop, noremap)
 
--- Semicolon as a colon
-bind(normal, ';', ':')
-
 -- Remap 0 to first non-blank character
 bind(any, '0', '^')
 
