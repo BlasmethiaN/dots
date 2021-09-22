@@ -13,6 +13,7 @@ alias config="git --git-dir=$HOME/.dots/ --work-tree=$HOME"
 alias  vim='nvim'
 alias battery='bat /sys/class/power_supply/BAT1/capacity'
 alias schedule='feh ~/Data/Pics/schedule.png'
+alias ccomp='cc -std=c99 -Wall -Werror -g -o'
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
