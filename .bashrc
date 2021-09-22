@@ -19,3 +19,6 @@ export EDITOR="$VISUAL"
 
 [[ -f ~/.bash_functions ]] && . ~/.bash_functions
 
+echo
+echo
+neofetch
