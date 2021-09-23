@@ -6,6 +6,9 @@
 
 eval "$(starship init bash)"
 
+# fuck
+eval "$(thefuck --alias)"
+
 shopt -s expand_aliases
 
 alias ls='exa --long --color=auto'
@@ -14,6 +17,8 @@ alias  vim='nvim'
 alias battery='bat /sys/class/power_supply/BAT1/capacity'
 alias schedule='feh ~/Data/Pics/schedule.png'
 alias ccomp='cc -std=c99 -Wall -Werror -g -o'
+alias cwd='pwd | tr -d "\n" | xclip -selection clipboard'
+
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
