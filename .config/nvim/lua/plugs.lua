@@ -24,6 +24,7 @@ Plug('ms-jpq/chadtree', {branch = 'chad', run = 'python3 -m chadtree deps'})
 
 Plug('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 Plug('neovim/nvim-lspconfig')
+Plug('easymotion/vim-easymotion')
 
 Plug('kyazdani42/nvim-web-devicons')
 Plug('iamcco/markdown-preview.nvim', {run = 'cd app && yarn install'})
