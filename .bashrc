@@ -9,8 +9,8 @@ eval "$(starship init bash)"
 # fuck
 eval "$(thefuck --alias)"
 
-# shellmarks
-source ~/.local/bin/shellmarks.sh
+# bashmarks
+source /usr/share/bashmarks/bashmarks.sh
 
 shopt -s expand_aliases
 
