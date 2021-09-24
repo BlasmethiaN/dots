@@ -7,6 +7,7 @@ local enable_snippets = coq.lsp_ensure_capabilities
 
 lsp.bashls.setup(enable_snippets {})
 lsp.ccls.setup{}
+lsp.denols.setup{}
 -- lsp.cssls.setup {}
 lsp.graphql.setup {}
 lsp.hls.setup {
