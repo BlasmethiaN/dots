@@ -2,6 +2,10 @@
 # ~/.bashrc
 #
 
+include() {
+  test -f "$1" && source "$@"
+}
+
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
 eval "$(starship init bash)"
@@ -25,7 +29,8 @@ alias cwd='pwd | tr -d "\n" | xclip -selection clipboard'
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 
-[[ -f ~/.bash_functions ]] && . ~/.bash_functions
+include ~/.bash_functions
+include ~/.profile
 
 echo
 echo

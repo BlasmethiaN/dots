@@ -308,14 +308,12 @@ theme.on_screen_connect = function(s)
     },
     {
       -- Center widget
-      layout = wibox.layout.align.horizontal
+      layout = wibox.layout.align.horizontal,
     },
     {
       -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       keyboard_layout_widget,
-      half_spr,
-      wibox.widget.systray(),
       wifi_widget,
       battery_widget,
       volume_widget,
