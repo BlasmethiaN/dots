@@ -73,7 +73,7 @@ theme.color = {
 theme.font = 'monospace 11'
 
 theme.fonts = {
-  icon = 'Font Awesome 14',
+  icon = 'monospace 15',
   widget = theme.font
 }
 
@@ -217,7 +217,7 @@ local clock =
 
 theme.on_screen_connect = function(s)
   -- Tags
-  awful.tag({'', '', '', '', '', '', '', '', ''}, s, awful.layout.layouts[1])
+  awful.tag({'', '', '', '', '', '', '', '', ''}, s, awful.layout.layouts[1])
 
   -- Create a taglist widget
   s.mytaglist =

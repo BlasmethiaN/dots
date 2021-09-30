@@ -1,7 +1,5 @@
 local cmd = require('util.cmd')
 
-local vim = vim
-
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 4
@@ -11,6 +9,8 @@ vim.opt.shiftround = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
+
+vim.env.BASH_ENV = '~/.bash_functions'
 
 cmd('colorscheme onedark')
 

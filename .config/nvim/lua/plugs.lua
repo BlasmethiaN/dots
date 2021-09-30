@@ -11,12 +11,13 @@ local plug_path = f.stdpath('data') .. '/site/autoload/plug.vim'
 -- Install vim-plug if not installed
 if (f.filereadable(plug_path) == 0) then
   cmd.echo 'Downloading junegunn/vim-plug to manage plugins…'
-  cmd.silent(
-    '!curl -fLo ' .. plug_path .. ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  )
+  cmd.silent('!curl -fLo ' .. plug_path ..
+                 ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
 end
 
 Plug.beginPlug(PLUG_DIR)
+
+Plug('nvim-lua/plenary.nvim')
 
 Plug('ms-jpq/coq_nvim', {branch = 'coq'})
 Plug('ms-jpq/coq.artifacts', {branch = 'artifacts'})
@@ -40,7 +41,8 @@ Plug('easymotion/vim-easymotion')
 
 Plug('kyazdani42/nvim-web-devicons')
 Plug('iamcco/markdown-preview.nvim', {run = 'cd app && yarn install'})
-Plug('xuhdev/vim-latex-live-preview', {ft = 'tex'})
+Plug('xuhdev/vim-latex-live-preview')
+Plug('nvim-telescope/telescope.nvim')
 
 Plug('morhetz/gruvbox')
 Plug('joshdick/onedark.vim')

@@ -3,10 +3,11 @@ require('treesitter')
 local lsp = require('lspconfig')
 local coq = require('coq')
 
-local enable_snippets = coq.lsp_ensure_capabilities
+local coq_setup = coq.lsp_ensure_capabilities
 
-lsp.bashls.setup(enable_snippets {})
-lsp.ccls.setup {}
+lsp.bashls.setup(coq_setup {})
+lsp.ccls.setup(coq_setup {})
+-- lsp.cssls.setup {}
 lsp.efm.setup {
   init_options = {documentFormatting = true},
   filetypes = {'lua'},
@@ -22,10 +23,12 @@ lsp.efm.setup {
     }
   }
 }
-lsp.denols.setup {}
--- lsp.cssls.setup {}
-lsp.graphql.setup {}
-lsp.hls.setup {settings = {haskell = {formattingProvider = 'stylish-haskell'}}}
+-- lsp.graphql.setup {}
+lsp.hls.setup(coq_setup {
+  settings = {haskell = {formattingProvider = 'stylish-haskell'}}
+})
+-- lsp.html.setup {}
+-- lsp.jsonls.setup {}
 
 local sumneko_binary_path = 'lua-language-server'
 local sumneko_root_path = '/usr/share/lua-language-server'
@@ -34,7 +37,7 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
-require'lspconfig'.sumneko_lua.setup {
+require'lspconfig'.sumneko_lua.setup(coq_setup {
   cmd = {sumneko_binary_path, '-E', sumneko_root_path .. '/main.lua'},
   settings = {
     Lua = {
@@ -43,7 +46,6 @@ require'lspconfig'.sumneko_lua.setup {
       workspace = {library = vim.api.nvim_get_runtime_file('', true)}
     }
   }
-}
--- lsp.html.setup {}
--- lsp.jsonls.setup {}
-lsp.texlab.setup(enable_snippets {})
+})
+
+lsp.texlab.setup(coq_setup {})
