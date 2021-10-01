@@ -19,23 +19,9 @@ local create_volume_widget = require('widgets.volume')
 local theme = {}
 
 theme.color = {
-  polar_night = {
-    '#2e3440',
-    '#3b4252',
-    '#434c5e',
-    '#4c566a'
-  },
-  snow_storm = {
-    '#d8dee9',
-    '#e5e9f0',
-    '#eceff4'
-  },
-  frost = {
-    '#8fbcbb',
-    '#88c0d0',
-    '#81a1c1',
-    '#5e81ac'
-  },
+  polar_night = {'#2e3440', '#3b4252', '#434c5e', '#4c566a'},
+  snow_storm = {'#d8dee9', '#e5e9f0', '#eceff4'},
+  frost = {'#8fbcbb', '#88c0d0', '#81a1c1', '#5e81ac'},
   aurora = {
     red = '#bf616a',
     orange = '#d08770',
@@ -61,21 +47,12 @@ theme.color = {
     grey = '#e0e0e0',
     green = '#00E676'
   },
-  femboy = {
-    '#ffcce6',
-    '#edaaf3',
-    '#d4a1f3',
-    '#be9cec',
-    '#b798ec'
-  }
+  femboy = {'#ffcce6', '#edaaf3', '#d4a1f3', '#be9cec', '#b798ec'}
 }
 
 theme.font = 'monospace 11'
 
-theme.fonts = {
-  icon = 'monospace 15',
-  widget = theme.font
-}
+theme.fonts = {icon = 'monospace 15', widget = theme.font}
 
 theme.bg_normal = theme.color.one_dark.dark
 theme.bg_focus = theme.color.frost[4]
@@ -96,15 +73,17 @@ theme.taglist_fg_empty = theme.color.polar_night[3]
 theme.taglist_fg_focus = theme.color.one_dark.dark
 theme.taglist_font = theme.fonts.icon
 
-theme.useless_gap = dpi(7)
-theme.border_width = dpi(0)
-theme.border_color_normal = theme.color.one_dark.blue
-theme.border_color_active = theme.color.femboy[1]
+theme.useless_gap = dpi(6)
+theme.border_width = dpi(1)
+-- theme.border_color_normal = theme.color.one_dark.dark
+-- theme.border_color_active = theme.color.material.yellow
 theme.border_color_marked = '#91231c'
 
 local taglist_square_size = dpi(2)
-theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
-theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
+theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
+                                taglist_square_size, theme.fg_normal)
+theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
+                                  taglist_square_size, theme.fg_normal)
 
 theme.menu_submenu_icon = themes_path .. 'default/submenu.png'
 theme.menu_height = dpi(15)
@@ -131,15 +110,12 @@ theme.icon_theme = nil
 
 theme.spacing = {small = dpi(10), normal = dpi(15)}
 
-rnotification.connect_signal(
-  'request::rules',
-  function()
-    rnotification.append_rule {
-      rule = {urgency = 'critical'},
-      properties = {bg = '#ff0000', fg = '#ffffff'}
-    }
-  end
-)
+rnotification.connect_signal('request::rules', function()
+  rnotification.append_rule {
+    rule = {urgency = 'critical'},
+    properties = {bg = '#ff0000', fg = '#ffffff'}
+  }
+end)
 
 -- Separators
 local spr = wibox.widget.textbox('     ')
@@ -149,91 +125,81 @@ local split_spr = wibox.widget.textbox(' ')
 -- Widgets {{{
 
 local wrap_widget = function(widget)
-  return layout.add_margin(layout.fixed_horizontal(widget), {left = theme.spacing.normal, right = theme.spacing.normal})
+  return layout.add_margin(layout.fixed_horizontal(widget), {
+    left = theme.spacing.normal,
+    right = theme.spacing.normal
+  })
 end
 
 -- Wifi widget
 local create_wifi_widget = require('widgets.wifi')
-local wifi =
-  create_wifi_widget(
-  {
-    primary = theme.color.material.green,
-    wifi_disconnected = theme.color.material.red,
-    wifi_connecting = theme.color.material.grey},
-  {icon = theme.fonts.icon, widget = theme.fonts.widget},
-  theme.spacing.small
-)
+local wifi = create_wifi_widget({
+  primary = theme.color.material.green,
+  wifi_disconnected = theme.color.material.red,
+  wifi_connecting = theme.color.material.grey
+}, {icon = theme.fonts.icon, widget = theme.fonts.widget}, theme.spacing.small)
 local wifi_widget = wrap_widget(wifi.widget)
 
 -- Volume widget
-local volume =
-  create_volume_widget(
-  {primary = theme.color.material.purple, background = theme.color.polar_night[2], muted = theme.color.material.grey},
-  theme.fonts.icon,
-  theme.spacing.small
-)
+local volume = create_volume_widget({
+  primary = theme.color.material.purple,
+  background = theme.color.polar_night[2],
+  muted = theme.color.material.grey
+}, theme.fonts.icon, theme.spacing.small)
 local volume_widget = layout.fixed_horizontal(layout.pad(volume.widget))
 theme.update_volume = volume.update_volume
 
 -- Keyboard layout widget
 local create_keyboard_layout_widget = require('widgets.keyboard_layout')
-local keyboard_layout =
-  create_keyboard_layout_widget(
-  {primary = theme.color.material.blue},
-  {icon = theme.fonts.icon, widget = theme.fonts.widget},
-  theme.spacing.small
-)
+local keyboard_layout = create_keyboard_layout_widget({
+  primary = theme.color.material.blue
+}, {icon = theme.fonts.icon, widget = theme.fonts.widget}, theme.spacing.small)
 local keyboard_layout_widget = wrap_widget(keyboard_layout.widget)
 
 -- Battery widget
 local create_battery_widget = require('widgets.battery')
-local battery =
-  create_battery_widget(
-  {primary = theme.color.material.cyan, battery_empty = theme.color.material.red},
-  {icon = theme.fonts.icon, widget = theme.fonts.widget},
-  theme.spacing.small
-)
+local battery = create_battery_widget({
+  primary = theme.color.material.cyan,
+  battery_empty = theme.color.material.red
+}, {icon = theme.fonts.icon, widget = theme.fonts.widget}, theme.spacing.small)
 local battery_widget = wrap_widget(battery.widget)
 
 -- Calendar
-local calendaricon =
-  wibox.widget.textbox(
-  string.format('<span color="%s" font="' .. theme.fonts.icon .. '"></span>', theme.color.material.yellow)
-)
-local calendar =
-  wibox.widget.textclock(
-  '<span font="' .. theme.fonts.widget .. '" color="' .. theme.color.material.yellow .. '"> %-d %b %Y (%a)</span>'
-)
+local calendaricon = wibox.widget.textbox(string.format(
+                                              '<span color="%s" font="' ..
+                                                  theme.fonts.icon ..
+                                                  '"></span>',
+                                              theme.color.material.yellow))
+local calendar = wibox.widget.textclock('<span font="' .. theme.fonts.widget ..
+                                            '" color="' ..
+                                            theme.color.material.yellow ..
+                                            '"> %-d %b %Y (%a)</span>')
 
 -- Clock
-local clockicon =
-  wibox.widget.textbox(
-  string.format('<span color="%s" font="' .. theme.fonts.icon .. '"> </span>', theme.color.material.orange)
-)
-local clock =
-  wibox.widget.textclock(
-  '<span font="' .. theme.fonts.widget .. '" color="' .. theme.color.material.orange .. '">%R</span>'
-)
+local clockicon = wibox.widget.textbox(string.format(
+                                           '<span color="%s" font="' ..
+                                               theme.fonts.icon ..
+                                               '"> </span>',
+                                           theme.color.material.orange))
+local clock = wibox.widget.textclock('<span font="' .. theme.fonts.widget ..
+                                         '" color="' ..
+                                         theme.color.material.orange ..
+                                         '">%R</span>')
 
 theme.on_screen_connect = function(s)
   -- Tags
-  awful.tag({'', '', '', '', '', '', '', '', ''}, s, awful.layout.layouts[1])
+  awful.tag({'', '', '', '', '', '', '', '', ''}, s,
+            awful.layout.layouts[1])
 
   -- Create a taglist widget
-  s.mytaglist =
-    awful.widget.taglist {
+  s.mytaglist = awful.widget.taglist {
     screen = s,
     filter = awful.widget.taglist.filter.all,
-    style = {
-      shape = gears.shape.circle
-    },
+    style = {shape = gears.shape.circle},
     widget_template = {
       {
         {
-          {
-            id = 'text_role',
-            widget = wibox.widget.textbox
-          },
+          {id = 'text_role', widget = wibox.widget.textbox},
           layout = wibox.layout.align.horizontal
         },
         left = 10,
@@ -244,59 +210,96 @@ theme.on_screen_connect = function(s)
       widget = wibox.container.background
     },
     buttons = {
-      awful.button(
-        {},
-        1,
-        function(t)
-          t:view_only()
-        end
-      ),
-      awful.button(
-        {MODKEY},
-        1,
-        function(t)
-          if client.focus then
-            client.focus:move_to_tag(t)
-          end
-        end
-      ),
-      awful.button({}, 3, awful.tag.viewtoggle),
-      awful.button(
-        {MODKEY},
-        3,
-        function(t)
-          if client.focus then
-            client.focus:toggle_tag(t)
-          end
-        end
-      ),
-      awful.button(
-        {},
-        4,
-        function(t)
-          awful.tag.viewprev(t.screen)
-        end
-      ),
-      awful.button(
-        {},
-        5,
-        function(t)
-          awful.tag.viewnext(t.screen)
-        end
-      )
+      awful.button({}, 1, function(t) t:view_only() end),
+      awful.button({MODKEY}, 1, function(t)
+        if client.focus then client.focus:move_to_tag(t) end
+      end), awful.button({}, 3, awful.tag.viewtoggle),
+      awful.button({MODKEY}, 3, function(t)
+        if client.focus then client.focus:toggle_tag(t) end
+      end), awful.button({}, 4, function(t) awful.tag.viewprev(t.screen) end),
+      awful.button({}, 5, function(t) awful.tag.viewnext(t.screen) end)
     }
   }
 
+  -- Animate active borders
+  border_animate_colours = {}
+  function makeColorGradient(frequency1, frequency2, frequency3, phase1, phase2,
+                             phase3, center, width, len)
+    if center == nil then center = 128 end
+    if width == nil then width = 127 end
+    if len == nil then len = 120 end
+    genLoop = 0
+    while genLoop < len do
+      red = string.format('%02x', (math.floor(
+                              math.sin(frequency1 * genLoop + phase1) * width +
+                                  center)))
+      grn = string.format('%02x', (math.floor(
+                              math.sin(frequency2 * genLoop + phase2) * width +
+                                  center)))
+      blu = string.format('%02x', (math.floor(
+                              math.sin(frequency3 * genLoop + phase3) * width +
+                                  center)))
+      border_animate_colours[genLoop] = '#' .. red .. grn .. blu
+      genLoop = genLoop + 1
+    end
+  end
+
+  redFrequency = .11
+  grnFrequency = .13
+  bluFrequency = .17
+
+  phase1 = 0
+  phase2 = 10
+  phase3 = 30
+
+  -- center = 128
+  -- width = 127
+  center = 180
+  width = 40
+  len = 80
+
+  makeColorGradient(redFrequency, grnFrequency, bluFrequency, phase1, phase2,
+                    phase3, center, width, len)
+
+  borderLoop = 1
+  border_animation_timer = gears.timer {
+    timeout = 0.03,
+    call_now = true,
+    autostart = true,
+    callback = function()
+      -- debug
+      -- naughty.notify({ preset = naughty.config.presets.critical, title = "- " .. borderLoop .. " -", bg = border_animate_colours[borderLoop], notification_border_width = 0 })
+      local c = client.focus
+      if c then
+        c.border_color = border_animate_colours[borderLoop]
+        if not borderLoopReverse then
+          borderLoop = borderLoop + 1
+          if borderLoop >= len then borderLoopReverse = true end
+        end
+        if borderLoopReverse then
+          borderLoop = borderLoop - 1
+          if borderLoop <= 1 then borderLoopReverse = false end
+        end
+      end
+    end
+  }
+
+  -- window borders
+  -- client.connect_signal("focus", function(c) c.border_color = "#ecbc34" end)
+  client.connect_signal('focus', function(c)
+    c.border_color = border_animate_colours[borderLoop]
+  end)
+
+  client.connect_signal('border_animation_timer:timeout', function(c)
+    c.border_color = border_animate_colours[borderLoop]
+  end)
+
+  -- Make border grey
+  client.connect_signal('unfocus', function(c) c.border_color = theme.color.one_dark.dark end)
   -- }}}
 
   -- Create the wibox
-  s.mywibox =
-    awful.wibar(
-    {
-      position = 'top',
-      screen = s
-    }
-  )
+  s.mywibox = awful.wibar({position = 'top', screen = s})
 
   -- Add widgets to the wibox
   s.mywibox.widget = {
@@ -308,7 +311,7 @@ theme.on_screen_connect = function(s)
     },
     {
       -- Center widget
-      layout = wibox.layout.align.horizontal,
+      layout = wibox.layout.align.horizontal
     },
     {
       -- Right widgets

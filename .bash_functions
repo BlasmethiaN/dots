@@ -18,5 +18,5 @@ function ngap() {
 }
 
 function agap() {
-  echo 'require("awful").screen.focused().selected_tag.gap = 7' | awesome-client 
+  echo 'require("awful").screen.focused().selected_tag.gap = 6' | awesome-client 
 }
