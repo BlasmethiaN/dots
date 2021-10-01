@@ -75,8 +75,8 @@ theme.taglist_font = theme.fonts.icon
 
 theme.useless_gap = dpi(6)
 theme.border_width = dpi(1)
--- theme.border_color_normal = theme.color.one_dark.dark
--- theme.border_color_active = theme.color.material.yellow
+theme.border_color_normal = theme.color.one_dark.dark
+theme.border_color_active = theme.color.femboy[1]
 theme.border_color_marked = '#91231c'
 
 local taglist_square_size = dpi(2)
@@ -220,82 +220,6 @@ theme.on_screen_connect = function(s)
       awful.button({}, 5, function(t) awful.tag.viewnext(t.screen) end)
     }
   }
-
-  -- Animate active borders
-  border_animate_colours = {}
-  function makeColorGradient(frequency1, frequency2, frequency3, phase1, phase2,
-                             phase3, center, width, len)
-    if center == nil then center = 128 end
-    if width == nil then width = 127 end
-    if len == nil then len = 120 end
-    genLoop = 0
-    while genLoop < len do
-      red = string.format('%02x', (math.floor(
-                              math.sin(frequency1 * genLoop + phase1) * width +
-                                  center)))
-      grn = string.format('%02x', (math.floor(
-                              math.sin(frequency2 * genLoop + phase2) * width +
-                                  center)))
-      blu = string.format('%02x', (math.floor(
-                              math.sin(frequency3 * genLoop + phase3) * width +
-                                  center)))
-      border_animate_colours[genLoop] = '#' .. red .. grn .. blu
-      genLoop = genLoop + 1
-    end
-  end
-
-  redFrequency = .11
-  grnFrequency = .13
-  bluFrequency = .17
-
-  phase1 = 0
-  phase2 = 10
-  phase3 = 30
-
-  -- center = 128
-  -- width = 127
-  center = 180
-  width = 40
-  len = 80
-
-  makeColorGradient(redFrequency, grnFrequency, bluFrequency, phase1, phase2,
-                    phase3, center, width, len)
-
-  borderLoop = 1
-  border_animation_timer = gears.timer {
-    timeout = 0.03,
-    call_now = true,
-    autostart = true,
-    callback = function()
-      -- debug
-      -- naughty.notify({ preset = naughty.config.presets.critical, title = "- " .. borderLoop .. " -", bg = border_animate_colours[borderLoop], notification_border_width = 0 })
-      local c = client.focus
-      if c then
-        c.border_color = border_animate_colours[borderLoop]
-        if not borderLoopReverse then
-          borderLoop = borderLoop + 1
-          if borderLoop >= len then borderLoopReverse = true end
-        end
-        if borderLoopReverse then
-          borderLoop = borderLoop - 1
-          if borderLoop <= 1 then borderLoopReverse = false end
-        end
-      end
-    end
-  }
-
-  -- window borders
-  -- client.connect_signal("focus", function(c) c.border_color = "#ecbc34" end)
-  client.connect_signal('focus', function(c)
-    c.border_color = border_animate_colours[borderLoop]
-  end)
-
-  client.connect_signal('border_animation_timer:timeout', function(c)
-    c.border_color = border_animate_colours[borderLoop]
-  end)
-
-  -- Make border grey
-  client.connect_signal('unfocus', function(c) c.border_color = theme.color.one_dark.dark end)
   -- }}}
 
   -- Create the wibox
