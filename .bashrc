@@ -13,8 +13,11 @@ eval "$(starship init bash)"
 # fuck
 eval "$(thefuck --alias)"
 
-# bashmarks
-source /usr/share/bashmarks/bashmarks.sh
+# pat.hs
+source /usr/share/paths/paths.sh
+
+# complete alias
+source /usr/share/bash-complete-alias/complete_alias
 
 shopt -s expand_aliases
 
@@ -25,6 +28,9 @@ alias battery='bat /sys/class/power_supply/BAT1/capacity'
 alias schedule='feh ~/Data/Pics/schedule.png'
 alias ccomp='cc -std=c99 -Wall -Werror -g -o'
 alias cwd='pwd | tr -d "\n" | xclip -selection clipboard'
+alias pl="paths list"
+alias go="paths go"
+complete -F _complete_alias go
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
