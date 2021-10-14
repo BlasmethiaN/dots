@@ -27,8 +27,11 @@ lsp.efm.setup {
 lsp.hls.setup(coq_setup {
   settings = {haskell = {formattingProvider = 'stylish-haskell'}}
 })
--- lsp.html.setup {}
--- lsp.jsonls.setup {}
+
+lsp.rust_analyzer.setup {}
+
+lsp.html.setup {}
+lsp.jsonls.setup {}
 
 lsp.lemminx.setup {cmd = {'/usr/bin/lemminx'}}
 
