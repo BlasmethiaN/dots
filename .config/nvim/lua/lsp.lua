@@ -7,7 +7,7 @@ local coq_setup = coq.lsp_ensure_capabilities
 
 lsp.bashls.setup(coq_setup {})
 lsp.ccls.setup(coq_setup {})
--- lsp.cssls.setup {}
+lsp.cssls.setup {}
 lsp.efm.setup {
   init_options = {documentFormatting = true},
   filetypes = {'lua'},
