@@ -30,6 +30,7 @@ alias ccomp='cc -std=c99 -Wall -Werror -g -o'
 alias cwd='pwd | tr -d "\n" | xclip -selection clipboard'
 alias pl="paths list"
 alias go="paths go"
+alias anime="ani-cli"
 complete -F _complete_alias go
 
 export VISUAL="nvim"
