@@ -1,0 +1,122 @@
+configuration {
+
+	font: "monospace medium 13";
+	width: 30;
+	line-margin: 10;
+	lines: 6;
+	columns: 2;
+
+    display-ssh:    "";
+    display-run:    "";
+    display-drun:   "";
+    display-window: "";
+    display-combi:  "";
+    show-icons:     true;
+}
+
+* {
+    purple: #ea80fc;
+    dark: #282c34;
+    femboy1: #ffcce6;
+    femboy3: #d4a1f3;
+    femboy5: #b798ec;
+
+    foreground:  @purple;
+    backlight:   #ccffeedd;
+    background-color:  transparent;
+    
+    highlight: underline bold #ffffff;
+
+    transparent: rgba(46,52,64,0);
+}
+
+window {
+    location: center;
+    anchor:   center;
+    transparency: "screenshot";
+    padding: 10px;
+    border:  0px;
+    border-radius: 6px;
+
+    background-color: @transparent;
+    spacing: 0;
+    children:  [mainbox];
+    orientation: horizontal;
+}
+
+mainbox {
+    spacing: 0;
+    children: [ inputbar, message, listview ];
+}
+
+message {
+    color: @purple;
+    padding: 5;
+    border-color: @foreground;
+    border:  0px 2px 2px 2px;
+    background-color: @purple;
+}
+
+inputbar {
+    color: @purple;
+    padding: 11px;
+    background-color: #3C4250;
+    border: 1px;
+    border-radius:  6px 6px 0px 0px;
+    border-color: @purple;
+}
+
+entry, prompt, case-indicator {
+    text-font: inherit;
+    text-color:inherit;
+}
+
+prompt {
+    margin: 0px 0.3em 0em 0em ;
+}
+
+listview {
+    padding: 8px;
+    border-radius: 0px 0px 6px 6px;
+    border-color: @purple;
+    border: 0px 1px 1px 1px;
+    background-color: rgba(60,66,80,0.9);
+    dynamic: false;
+}
+
+element {
+    padding: 3px;
+    vertical-align: 0.5;
+    border-radius: 4px;
+    background-color: transparent;
+    color: @foreground;
+    text-color: #00ffff;
+}
+
+element.selected.normal {
+	background-color: @purple;
+	text-color: #000000;
+}
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color: inherit;
+}
+element-icon {
+  size: 26px;
+}
+
+button {
+    padding: 6px;
+    color: @foreground;
+    horizontal-align: 0.5;
+
+    border: 2px 0px 2px 2px;
+    border-radius: 4px 0px 0px 4px;
+    border-color: @foreground;
+}
+
+button selected normal {
+    border: 2px 0px 2px 2px;
+    border-color: @foreground;
+} 
