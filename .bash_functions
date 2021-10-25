@@ -5,6 +5,15 @@ function mkcd() {
   cd "$1"
 }
 
+connect() {
+    bluetoothctl power on
+    bluetoothctl connect $1
+}
+
+niceboi() {
+    connect 3A:99:83:31:E2:9A
+}
+
 function schedule() {
   feh ~/Data/Pics/schedule.png
 }

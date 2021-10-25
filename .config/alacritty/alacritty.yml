@@ -15,5 +15,7 @@ colors:
 selection:
   save_to_clipboard: false
 
+key_bindings:
+  - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
 # background_opacity: 1
 
