@@ -127,11 +127,16 @@ ruled.client.connect_signal("request::rules", function()
         }
     }
 
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- ruled.client.append_rule {
-    --     rule       = { class = "Firefox"     },
-    --     properties = { screen = 1, tag = "2" }
-    -- }
+  ruled.client.append_rule {
+        rule_any = {class = {'Brave-browser'}},
+        properties = {tag = ''}
+  }
+
+  ruled.client.append_rule {
+        rule_any = {class = {'discord'}},
+        properties = {tag = ''}
+  }
+
 end)
 
 -- }}

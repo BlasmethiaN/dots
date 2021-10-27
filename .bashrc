@@ -31,6 +31,8 @@ alias cwd='pwd | tr -d "\n" | xclip -selection clipboard'
 alias pl="paths list"
 alias go="paths go"
 alias anime="ani-cli"
+alias pm="pulsemixer"
+alias btdc="bluetoothctl disconnect"
 complete -F _complete_alias go
 
 export VISUAL="nvim"
