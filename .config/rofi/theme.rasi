@@ -17,6 +17,7 @@ configuration {
 * {
     purple: #ea80fc;
     dark: #282c34;
+    dark-lighter: #4E5666;
     femboy1: #ffcce6;
     femboy3: #d4a1f3;
     femboy5: #b798ec;
@@ -93,9 +94,13 @@ element {
     text-color: #00ffff;
 }
 
-element.selected.normal {
+element.selected {
 	background-color: @purple;
 	text-color: #000000;
+}
+
+element.active {
+  background-color: @dark-lighter;
 }
 
 element-text, element-icon {

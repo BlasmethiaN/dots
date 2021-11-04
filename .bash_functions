@@ -14,6 +14,10 @@ niceboi() {
     connect 3A:99:83:31:E2:9A
 }
 
+soundcore() {
+    connect AC:12:2F:E1:5F:D4
+}
+
 function schedule() {
   feh ~/Data/Pics/schedule.png
 }
