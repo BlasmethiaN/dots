@@ -223,6 +223,7 @@ theme.on_screen_connect = function(s)
   -- }}}
 
   -- Create the wibox
+  -- delete height
   s.mywibox = awful.wibar({position = 'top', screen = s})
 
   -- Add widgets to the wibox
