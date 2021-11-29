@@ -137,7 +137,7 @@ end, {
 end, {
   description = "increase the number of columns",
   group = "layout"
-}), awful.key({MODKEY, "Control"}, "l", function()
+}), awful.key({MODKEY, "Control"}, "s", function()
   awful.tag.incncol(-1, nil, true)
 end, {
   description = "decrease the number of columns",
@@ -154,7 +154,7 @@ end, {
   group = "layout"
 }))
 
-keys.global_keys = gears.table.join(keys.global_keys, 
+keys.global_keys = gears.table.join(keys.global_keys,
 awful.key {
   modifiers = {MODKEY},
   keygroup = "numrow",
