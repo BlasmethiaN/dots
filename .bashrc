@@ -33,6 +33,9 @@ alias go="paths go"
 alias anime="ani-cli"
 alias pm="pulsemixer"
 alias btdc="bluetoothctl disconnect"
+alias paru-r="paru -Rcns"
+
+complete -F _complete_alias paru-r
 complete -F _complete_alias go
 
 export VISUAL="nvim"
