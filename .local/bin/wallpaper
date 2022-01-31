@@ -1,4 +1,7 @@
 #!/bin/sh
 
 ls ~/.config/wallpapers/ \
-  | shuf -n 1 | xargs -I{} xwallpaper --zoom ~/.config/wallpapers/{}
+ | shuf -n 1 | xargs -I{} xwallpaper --output DVI-D-0 --zoom ~/.config/wallpapers/{}
+
+ls ~/.config/wallpapers/ \
+  | shuf -n 1 | xargs -I{} xwallpaper --output HDMI-0 --zoom ~/.config/wallpapers/{}
