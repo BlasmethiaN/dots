@@ -242,8 +242,6 @@ theme.on_screen_connect = function(s)
       -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       keyboard_layout_widget,
-      wifi_widget,
-      battery_widget,
       volume_widget,
       half_spr,
       {

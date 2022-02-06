@@ -168,4 +168,4 @@ end)
 awful.spawn.with_shell("wallpaper")
 awful.spawn.with_shell("remaps")
 awful.spawn.with_shell("picom --experimental-backends")
-
+awful.spawn.with_shell('killall udiskie ; udiskie')
