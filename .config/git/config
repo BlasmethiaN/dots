@@ -2,3 +2,6 @@
 	rebase = true
 [rebase]
 	autoStash = true
+[user]
+	email = dominako223@gmail.com
+	name = BlasmethiaN
