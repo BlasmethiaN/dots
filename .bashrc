@@ -34,6 +34,7 @@ alias anime="ani-cli"
 alias pm="pulsemixer"
 alias btdc="bluetoothctl disconnect"
 alias paru-r="paru -Rcns"
+alias wgdv="wg-quick up Zauzoo-DVolak"
 
 complete -F _complete_alias paru-r
 complete -F _complete_alias go
