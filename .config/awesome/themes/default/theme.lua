@@ -85,6 +85,9 @@ theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
                                   taglist_square_size, theme.fg_normal)
 
+-- Hotkeys
+theme.hotkeys_modifiers_fg = theme.color.femboy[1]
+
 theme.menu_submenu_icon = themes_path .. 'default/submenu.png'
 theme.menu_height = dpi(15)
 theme.menu_width = dpi(100)

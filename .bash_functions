@@ -33,3 +33,8 @@ function ngap() {
 function agap() {
   echo 'require("awful").screen.focused().selected_tag.gap = 6' | awesome-client 
 }
+
+function ass() {
+ nasm -f elf32 -g -o "$1".o "$1".asm
+ gcc -m32 -o "$1" "$1".o 
+}
