@@ -5,3 +5,5 @@
 [user]
 	email = dominako223@gmail.com
 	name = BlasmethiaN
+[alias]
+    ac = commit -am
