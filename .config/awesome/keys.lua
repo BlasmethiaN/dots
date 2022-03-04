@@ -221,7 +221,7 @@ awful.key {
 -- Custom keybindings
 keys.global_keys = gears.table.join(keys.global_keys, 
   awful.key({MODKEY, "Control"}, "l", function()
-  awful.spawn("sxlock")
+  awful.spawn("betterlockscreen -l")
 end, {
   description = "lock the screen",
   group = "custom"
