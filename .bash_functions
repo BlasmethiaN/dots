@@ -38,3 +38,8 @@ function ass() {
  nasm -f elf32 -g -o "$1".o "$1".asm
  gcc -m32 -o "$1" "$1".o 
 }
+
+function wcyd() {
+  echo 'What can you do.' 
+  $(mpv ~/Data/Memes/Sounds/wcyd.wav &>/dev/null & disown)
+}
