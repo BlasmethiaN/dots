@@ -43,3 +43,8 @@ function wcyd() {
   echo 'What can you do.' 
   $(mpv ~/Data/Memes/Sounds/wcyd.wav &>/dev/null & disown)
 }
+
+function based() {
+  echo "Ring ring, it's for You, it's the based police."
+  $(mpv ~/Data/Memes/Sounds/basedpolice.wav &>/dev/null & disown)
+}
