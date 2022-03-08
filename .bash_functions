@@ -48,3 +48,12 @@ function based() {
   echo "Ring ring, it's for You, it's the based police."
   $(mpv ~/Data/Memes/Sounds/basedpolice.wav &>/dev/null & disown)
 }
+
+function botanoha() {
+  echo "Vždycky jsem měl vysoké vysoké naděje na žití."
+  echo "Střílel jsem na hvězdy když jsem nemohl dělat zabíjení."
+  echo "Neměl jsem deseticent, ale vždycky jsem měl vizi."
+  echo "Vždycky jsem měl vysoké vysoké naděje."
+
+  $(mpv ~/Data/Memes/Sounds/hrabeleg.wav &>/dev/null & disown)
+}
