@@ -251,9 +251,15 @@ end, {
 }), awful.key({MODKEY}, ".", function()
   awful.spawn("emoji")
 end, {
-  description = "emoji picker",
+  description = "gitmoji picker",
+  group = "custom"
+}), awful.key({MODKEY, "Shift"}, ".", function()
+  awful.spawn("rofi-gitmoji")
+end, {
+  description = "gitmoji picker",
   group = "custom"
 }),
+
 awful.key({}, "XF86MonBrightnessUp", function()
   awful.spawn("xbacklight -inc 20") 
 end, {
