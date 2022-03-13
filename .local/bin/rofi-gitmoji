@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rofi -show gitmoji -modi "gitmoji:rofi-gitmoji.sh"
