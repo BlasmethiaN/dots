@@ -1,0 +1,3 @@
+#!/bin/sh
+
+LD_PRELOAD=sdl_block_screensaver_inhibit.so SDL_VIDEO_ALLOW_SCREENSAVER=1 /usr/bin/steam "$@"

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+gcc -shared -fPIC -ldl -m32 -o sdl_block_screensaver_inhibit.so sdl_block_screensaver_inhibit.c
+sudo mv sdl_block_screensaver_inhibit.so /usr/lib32
+
+gcc -shared -fPIC -ldl -o sdl_block_screensaver_inhibit.so sdl_block_screensaver_inhibit.c
+sudo mv sdl_block_screensaver_inhibit.so /usr/lib64
