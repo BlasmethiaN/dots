@@ -33,6 +33,8 @@ lsp.rust_analyzer.setup {}
 lsp.html.setup {}
 lsp.jsonls.setup {}
 
+lsp.asm_lsp.setup {}
+
 lsp.lemminx.setup {cmd = {'/usr/bin/lemminx'}}
 
 local sumneko_binary_path = 'lua-language-server'
