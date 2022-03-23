@@ -33,7 +33,7 @@ lsp.rust_analyzer.setup {}
 lsp.html.setup {}
 lsp.jsonls.setup {}
 
-lsp.asm_lsp.setup {}
+-- lsp.asm_lsp.setup(coq_setup {})
 
 lsp.lemminx.setup {cmd = {'/usr/bin/lemminx'}}
 
