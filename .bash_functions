@@ -57,3 +57,14 @@ function botanoha() {
 
   $(mpv ~/Data/Memes/Sounds/hrabeleg.wav &>/dev/null & disown)
 }
+
+function broken() {
+  echo "The world is broken."
+  echo "We’re the last choking embers of a fire waiting to burn out."
+  echo "Long before our grandfathers and their fathers before them,"
+  echo "we started pulling our planet apart in the name of progress and blind ambition."
+  echo "The greed of man has devoured this earth until there was nothing left."
+  echo "We watch as time eats us alive. A generation born to witness the end of the world."
+
+  $(mpv ~/Data/Memes/Sounds/broken.wav &>/dev/null & disown)
+}
