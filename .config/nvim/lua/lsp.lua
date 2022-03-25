@@ -10,7 +10,7 @@ lsp.ccls.setup(coq_setup {})
 lsp.cssls.setup {}
 lsp.efm.setup {
   init_options = {documentFormatting = true},
-  filetypes = {'lua'},
+  filetypes = {'lua', 'sh'},
   settings = {
     rootMarkers = {'.git/'},
     languages = {
@@ -18,6 +18,18 @@ lsp.efm.setup {
         {
           formatCommand = 'lua-format -i --indent-width=2 --double-quote-to-single-quote',
           formatStdin = true
+        }
+      },
+      sh = {
+        {
+          formatCommand = 'shfmt -ci -i 2 -s -bn',
+          formatStdin = true,
+          lintCommand = 'shellcheck -f gcc -x',
+          lintSource = 'shellcheck',
+          lintFormats = {
+            '%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m',
+            '%f:%l:%c: %tote: %m'
+          }
         }
       }
     }
@@ -56,3 +68,4 @@ lsp.sumneko_lua.setup(coq_setup {
 })
 
 lsp.texlab.setup(coq_setup {})
+
