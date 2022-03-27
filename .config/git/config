@@ -7,3 +7,5 @@
 	name = BlasmethiaN
 [alias]
     ac = commit -am
+[init]
+    defaultBranch = main
