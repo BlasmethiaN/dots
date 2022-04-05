@@ -50,3 +50,5 @@ include ~/.profile
 echo
 echo
 neofetch
+
+[ -f "/home/blasmesian/.ghcup/env" ] && source "/home/blasmesian/.ghcup/env" # ghcup-env

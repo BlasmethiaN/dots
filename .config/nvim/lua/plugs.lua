@@ -47,4 +47,6 @@ Plug('nvim-telescope/telescope.nvim')
 Plug('morhetz/gruvbox')
 Plug('joshdick/onedark.vim')
 
+Plug('github/copilot.vim')
+
 Plug.endPlug()
