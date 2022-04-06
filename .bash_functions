@@ -70,7 +70,7 @@ function broken() {
 }
 
 function hurts() {
-  echo "It hurts."
+  echo "It hurts. ❤️ 🔥"
   $(mpv ~/Data/Memes/Sounds/hurts.wav &>/dev/null & disown)
 }
 
