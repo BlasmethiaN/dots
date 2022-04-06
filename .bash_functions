@@ -75,6 +75,6 @@ function hurts() {
 }
 
 function nya() {
-  echo "Nya 🥵"
+  echo "Nya 🥵🐱"
   $(mpv ~/Data/Memes/Sounds/nya.wav &>/dev/null & disown)
 }
