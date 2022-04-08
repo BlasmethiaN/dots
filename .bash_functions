@@ -68,3 +68,13 @@ function broken() {
 
   $(mpv ~/Data/Memes/Sounds/broken.wav &>/dev/null & disown)
 }
+
+function hurts() {
+  echo "It hurts. ❤️ 🔥"
+  $(mpv ~/Data/Memes/Sounds/hurts.wav &>/dev/null & disown)
+}
+
+function nya() {
+  echo "Nya 🥵🐱"
+  $(mpv ~/Data/Memes/Sounds/nya.wav &>/dev/null & disown)
+}
