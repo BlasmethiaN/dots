@@ -50,3 +50,7 @@ bind(normal, 'gd', ':lua vim.lsp.buf.definition()<CR>', noremap)
 bind(normal, 'gr', ':lua vim.lsp.buf.rename()<CR>', noremap)
 bind(normal, 'gh', ':lua vim.lsp.buf.hover()<CR>', noremap)
 bind(normal, leader .. 'f', ':lua vim.lsp.buf.formatting()<CR>', noremap)
+
+-- Telescope
+bind(normal, leader .. 'tp', ':Telescope find_files<cr>', noremap)
+bind(normal, leader .. 'tl', ':Telescope live_grep<cr>', noremap)
