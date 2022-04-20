@@ -10,7 +10,7 @@ lsp.ccls.setup(coq_setup {})
 lsp.cssls.setup {}
 lsp.efm.setup {
   init_options = { documentFormatting = true },
-  filetypes = { 'lua', 'sh' },
+  filetypes = { 'lua', 'sh', 'python' },
   settings = {
     rootMarkers = { '.git/' },
     languages = {
@@ -30,6 +30,12 @@ lsp.efm.setup {
             '%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m',
             '%f:%l:%c: %tote: %m'
           }
+        }
+      },
+      python = {
+        {
+          formatCommand = 'yapf --quiet',
+          formatStdin = true
         }
       }
     }
