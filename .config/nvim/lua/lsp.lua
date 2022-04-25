@@ -32,7 +32,12 @@ lsp.efm.setup {
           }
         }
       },
-      python = {{formatCommand = 'yapf --quiet', formatStdin = true}}
+      python = {
+        {
+          formatCommand = 'yapf --quiet',
+          formatStdin = true
+        }
+      }
     }
   }
 }

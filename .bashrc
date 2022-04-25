@@ -43,6 +43,7 @@ complete -F _complete_alias go
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
+export BAT_THEME="OneHalfDark"
 
 include ~/.bash_functions
 include ~/.profile
