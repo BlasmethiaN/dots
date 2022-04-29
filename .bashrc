@@ -37,6 +37,9 @@ alias paru-r="paru -Rcns"
 alias wgdv="wg-quick up Zauzoo-DVolak"
 alias sl="sl -ad -4"
 alias clip="xclip -selection clipboard"
+alias gif="sxiv -a"
+alias what="echo ever. 🤣😝😂😜"
+alias co="echo koliv. 😂🤪🤣😝"
 
 complete -F _complete_alias paru-r
 complete -F _complete_alias go
