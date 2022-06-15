@@ -78,3 +78,8 @@ function nya() {
   echo "Nya 🥵🐱"
   $(mpv ~/Data/Memes/Sounds/nya.wav &>/dev/null & disown)
 }
+
+function benyky() {
+  echo "Enyky benyky, na holí pupíky, aspoň 20. 🐻🧸"
+  $(mpv ~/Data/Memes/Sounds/benyky.wav &>/dev/null & disown)
+}
