@@ -137,6 +137,11 @@ ruled.client.connect_signal("request::rules", function()
         properties = {tag = ''}
   }
 
+  ruled.client.append_rule {
+        rule_any = {class = {'Steam'}},
+        properties = {tag = ''}
+  }
+
 end)
 
 -- }}
