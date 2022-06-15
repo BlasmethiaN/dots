@@ -32,12 +32,7 @@ lsp.efm.setup {
           }
         }
       },
-      python = {
-        {
-          formatCommand = 'yapf --quiet',
-          formatStdin = true
-        }
-      }
+      python = {{formatCommand = 'yapf --quiet', formatStdin = true}}
     }
   }
 }
@@ -45,7 +40,11 @@ lsp.efm.setup {
 lsp.hls
     .setup(coq_setup {settings = {haskell = {formattingProvider = 'ormolu'}}})
 
-lsp.rust_analyzer.setup {}
+lsp.rust_analyzer.setup(coq_setup {
+  settings = {
+    ['rust-analyzer'] = {rustfmt = {extraArgs = {'--config', 'tab_spaces=2'}}}
+  }
+})
 lsp.pyright.setup(coq_setup {})
 lsp.html.setup {}
 lsp.jsonls.setup {}
