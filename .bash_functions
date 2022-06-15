@@ -83,3 +83,8 @@ function benyky() {
   echo "Enyky benyky, na holí pupíky, aspoň 20. 🐻🧸"
   $(mpv ~/Data/Memes/Sounds/benyky.wav &>/dev/null & disown)
 }
+
+function fthisup() {
+  echo "Have I fucked this up again? 😐🥹 🎸😢"
+  $(mpv ~/Data/Memes/Sounds/fthisup.wav &>/dev/null & disown)
+}
