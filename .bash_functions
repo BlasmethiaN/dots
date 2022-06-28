@@ -41,12 +41,12 @@ function ass() {
 
 function wcyd() {
   echo 'What can you do.' 
-  $(mpv ~/Data/Memes/Sounds/wcyd.wav &>/dev/null & disown)
+  $(mpv ~/Data/Memes/Sounds/wcyd &>/dev/null & disown)
 }
 
 function based() {
   echo "Ring ring, it's for You, it's the based police."
-  $(mpv ~/Data/Memes/Sounds/basedpolice.wav &>/dev/null & disown)
+  $(mpv ~/Data/Memes/Sounds/basedpolice &>/dev/null & disown)
 }
 
 function botanoha() {
@@ -55,7 +55,7 @@ function botanoha() {
   echo "Neměl jsem deseticent, ale vždycky jsem měl vizi."
   echo "Vždycky jsem měl vysoké vysoké naděje."
 
-  $(mpv ~/Data/Memes/Sounds/hrabeleg.wav &>/dev/null & disown)
+  $(mpv ~/Data/Memes/Sounds/hrabeleg &>/dev/null & disown)
 }
 
 function broken() {
@@ -66,25 +66,25 @@ function broken() {
   echo "The greed of man has devoured this earth until there was nothing left."
   echo "We watch as time eats us alive. A generation born to witness the end of the world."
 
-  $(mpv ~/Data/Memes/Sounds/broken.wav &>/dev/null & disown)
+  $(mpv ~/Data/Memes/Sounds/broken &>/dev/null & disown)
 }
 
 function hurts() {
   echo "It hurts. ❤️ 🔥"
-  $(mpv ~/Data/Memes/Sounds/hurts.wav &>/dev/null & disown)
+  $(mpv ~/Data/Memes/Sounds/hurts &>/dev/null & disown)
 }
 
 function nya() {
   echo "Nya 🥵🐱"
-  $(mpv ~/Data/Memes/Sounds/nya.wav &>/dev/null & disown)
+  $(mpv ~/Data/Memes/Sounds/nya &>/dev/null & disown)
 }
 
 function benyky() {
   echo "Enyky benyky, na holí pupíky, aspoň 20. 🐻🧸"
-  $(mpv ~/Data/Memes/Sounds/benyky.wav &>/dev/null & disown)
+  $(mpv ~/Data/Memes/Sounds/benyky &>/dev/null & disown)
 }
 
 function fthisup() {
   echo "Have I fucked this up again? 😐🥹 🎸😢"
-  $(mpv ~/Data/Memes/Sounds/fthisup.wav &>/dev/null & disown)
+  $(mpv ~/Data/Memes/Sounds/fthisup &>/dev/null & disown)
 }
