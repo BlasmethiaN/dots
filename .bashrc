@@ -56,3 +56,8 @@ echo
 neofetch
 
 [ -f "/home/blasmesian/.ghcup/env" ] && source "/home/blasmesian/.ghcup/env" # ghcup-env
+
+# pnpm
+export PNPM_HOME="/home/blasmesian/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

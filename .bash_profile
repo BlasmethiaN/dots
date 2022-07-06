@@ -3,6 +3,7 @@
 #
 
 source ~/.bashrc
+xrandr --output HDMI-0 --primary
 
 if [ -d "$HOME/.local/bin" ] ; then
 	PATH="$HOME/.local/bin:$PATH"
