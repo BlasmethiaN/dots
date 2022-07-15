@@ -222,8 +222,11 @@ awful.key {
 keys.global_keys = gears.table.join(keys.global_keys, 
   awful.key({MODKEY, "Control"}, "l", function()
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   awful.spawn("sxlock")
 =======
+=======
+>>>>>>> Stashed changes
   awful.spawn("betterlockscreen -l --off 2")
 >>>>>>> Stashed changes
 end, {
