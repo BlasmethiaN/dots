@@ -40,6 +40,7 @@ alias clip="xclip -selection clipboard"
 alias gif="sxiv -a"
 alias what="echo ever. 🤣😝😂😜"
 alias co="echo koliv. 😂🤪🤣😝"
+alias sus="systemctl suspend"
 
 complete -F _complete_alias paru-r
 complete -F _complete_alias go
