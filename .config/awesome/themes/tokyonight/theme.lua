@@ -129,7 +129,7 @@ local create_wifi_widget = require('widgets.wifi')
 local wifi =
   create_wifi_widget(
   {
-    primary = theme.color.green,
+    primary = theme.color.green1,
     wifi_disconnected = theme.color.red1,
     wifi_connecting = theme.color.polar_night[2]
   },
@@ -164,7 +164,7 @@ local create_battery_widget = require('widgets.battery')
 local battery =
   create_battery_widget(
   {
-    primary = theme.color.cyan,
+    primary = theme.color.magenta,
     battery_empty = theme.color.red1
   },
   {icon = theme.fonts.icon, widget = theme.fonts.widget},
