@@ -25,6 +25,7 @@ Plug('ms-jpq/chadtree', {branch = 'chad', run = 'python3 -m chadtree deps'})
 
 Plug('folke/lsp-colors.nvim')
 Plug('folke/trouble.nvim')
+Plug('folke/tokyonight.nvim')
 
 Plug('tpope/vim-surround')
 Plug('tpope/vim-commentary')
