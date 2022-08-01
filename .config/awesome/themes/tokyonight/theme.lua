@@ -60,7 +60,7 @@ theme.fonts = {icon = 'monospace 15', widget = theme.font}
 
 theme.bg_normal = theme.color.bg
 theme.bg_focus = theme.color.frost[4]
-theme.bg_urgent = theme.color.red
+theme.bg_urgent = theme.color.red1
 theme.bg_minimize = theme.color.polar_night[2]
 theme.bg_systray = theme.bg
 
@@ -131,7 +131,7 @@ end
 
 -- Volume widget
 local volume = create_volume_widget({
-  primary = theme.color.purple,
+  primary = theme.color.cyan,
   background = theme.color.polar_night[2],
   muted = theme.color.dark3
 }, theme.fonts.icon, theme.spacing.small)
@@ -158,10 +158,10 @@ local calendaricon = wibox.widget.textbox(string.format(
                                               '<span color="%s" font="' ..
                                                   theme.fonts.icon ..
                                                   '"></span>',
-                                              theme.color.yellow))
+                                              theme.color.orange))
 local calendar = wibox.widget.textclock('<span font="' .. theme.fonts.widget ..
                                             '" color="' ..
-                                            theme.color.yellow ..
+                                            theme.color.orange ..
                                             '"> %-d %b %Y (%a)</span>')
 
 -- Clock
@@ -169,10 +169,10 @@ local clockicon = wibox.widget.textbox(string.format(
                                            '<span color="%s" font="' ..
                                                theme.fonts.icon ..
                                                '"> </span>',
-                                           theme.color.orange))
+                                           theme.color.red))
 local clock = wibox.widget.textclock('<span font="' .. theme.fonts.widget ..
                                          '" color="' ..
-                                         theme.color.orange ..
+                                         theme.color.red ..
                                          '">%R</span>')
 
 theme.on_screen_connect = function(s)
