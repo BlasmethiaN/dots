@@ -25,7 +25,6 @@ Plug('ms-jpq/chadtree', {branch = 'chad', run = 'python3 -m chadtree deps'})
 
 Plug('folke/lsp-colors.nvim')
 Plug('folke/trouble.nvim')
-Plug('folke/tokyonight.nvim')
 
 Plug('tpope/vim-surround')
 Plug('tpope/vim-commentary')
@@ -45,9 +44,11 @@ Plug('iamcco/markdown-preview.nvim', {run = 'cd app && yarn install'})
 Plug('xuhdev/vim-latex-live-preview')
 Plug('nvim-telescope/telescope.nvim')
 
-Plug('morhetz/gruvbox')
 Plug('joshdick/onedark.vim')
 Plug('doki-theme/doki-theme-vim')
+Plug('folke/tokyonight.nvim')
+Plug('thedenisnikulin/vim-cyberpunk')
+Plug('drewtempelmeyer/palenight.vim')
 
 Plug('github/copilot.vim')
 
