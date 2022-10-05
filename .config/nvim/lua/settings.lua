@@ -13,7 +13,7 @@ vim.opt.linebreak = true
 
 vim.env.BASH_ENV = '~/.bash_functions'
 
-cmd('colorscheme tokyonight')
+cmd('colorscheme tokyonight-night')
 
 require('settings.plugins')
 require('settings.keys')
