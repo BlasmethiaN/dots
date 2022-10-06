@@ -42,6 +42,7 @@ alias gif="sxiv -a"
 alias what="echo ever. 🤣😝😂😜"
 alias co="echo koliv. 😂🤪🤣😝"
 alias sus="systemctl suspend"
+alias wamo="xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput HEAD-0"
 
 complete -F _complete_alias paru-r
 complete -F _complete_alias go
