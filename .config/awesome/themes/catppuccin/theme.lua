@@ -54,8 +54,8 @@ theme.fg_urgent = theme.color.orange
 theme.fg_minimize = theme.color.snow_storm[1]
 
 theme.taglist_bg_urgent = theme.orange
-theme.taglist_bg_focus = theme.color.rosewater
-theme.taglist_fg_occupied = theme.color.rosewater
+theme.taglist_bg_focus = theme.color.flamingo
+theme.taglist_fg_occupied = theme.color.flamingo
 theme.taglist_fg_urgent = theme.color.bg
 theme.taglist_fg_empty = theme.color.polar_night[3]
 theme.taglist_fg_focus = theme.color.bg
@@ -64,7 +64,7 @@ theme.taglist_font = theme.fonts.icon
 theme.useless_gap = dpi(6)
 theme.border_width = dpi(1)
 theme.border_color_normal = theme.color.bg
-theme.border_color_active = theme.color.rosewater
+theme.border_color_active = theme.color.flamingo
 theme.border_color_marked = '#91231c'
 
 local taglist_square_size = dpi(2)
