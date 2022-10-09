@@ -46,9 +46,9 @@ Plug('nvim-telescope/telescope.nvim')
 
 Plug('joshdick/onedark.vim')
 Plug('doki-theme/doki-theme-vim')
-Plug('folke/tokyonight.nvim')
+Plug('ghifarit53/tokyonight-vim')
 Plug('thedenisnikulin/vim-cyberpunk')
-Plug('drewtempelmeyer/palenight.vim')
+Plug('catppuccin/vim')
 
 Plug('github/copilot.vim')
 
