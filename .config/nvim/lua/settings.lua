@@ -10,6 +10,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.linebreak = true
+vim.opt.mouse = {}
 
 vim.env.BASH_ENV = '~/.bash_functions'
 
