@@ -42,7 +42,7 @@ end)
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-local theme_path = string.format('%s/.config/awesome/themes/%s/theme.lua', os.getenv('HOME'), 'tokyonight')
+local theme_path = string.format('%s/.config/awesome/themes/%s/theme.lua', os.getenv('HOME'), 'catppuccin')
 beautiful.init(theme_path)
 
 -- {{{ Tag
