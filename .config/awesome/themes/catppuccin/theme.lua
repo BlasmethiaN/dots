@@ -36,6 +36,11 @@ theme.color = {
   teal = '#8bd5ca',
   red = '#ed8796',
   flamingo = '#f0c6c6',
+  rosewater = '#f4dbd6',
+  pink = '#f5bde6',
+  maroon = '#ee99a0',
+  sapphire = '#7dc4e4',
+  lavender = '#b7bdf8',
 }
 
 theme.font = 'monospace 11'
@@ -109,22 +114,22 @@ local wrap_widget = function(widget)
 end
 
 -- Wifi widget
--- local create_wifi_widget = require('widgets.wifi')
--- local wifi =
---   create_wifi_widget(
---   {
---     primary = theme.color.green,
---     wifi_disconnected = theme.color.red,
---     wifi_connecting = theme.color.polar_night[2]
---   },
---   {icon = theme.fonts.icon, widget = theme.fonts.widget},
---   theme.spacing.small
--- )
--- local wifi_widget = wrap_widget(wifi.widget)
+local create_wifi_widget = require('widgets.wifi')
+local wifi =
+  create_wifi_widget(
+  {
+    primary = theme.color.green,
+    wifi_disconnected = theme.color.red,
+    wifi_connecting = theme.color.polar_night[2]
+  },
+  {icon = theme.fonts.icon, widget = theme.fonts.widget},
+  theme.spacing.small
+)
+local wifi_widget = wrap_widget(wifi.widget)
 
 -- Volume widget
 local volume = create_volume_widget({
-  primary = theme.color.cyan,
+  primary = theme.color.yellow,
   background = theme.color.polar_night[2],
   muted = theme.color.dark3
 }, theme.fonts.icon, theme.spacing.small)
@@ -136,7 +141,7 @@ local create_keyboard_layout_widget = require('widgets.keyboard_layout')
 local keyboard_layout =
   create_keyboard_layout_widget(
   {
-    primary = theme.color.blue
+    primary = theme.color.orange
   },
   {icon = theme.fonts.icon, widget = theme.fonts.widget},
   theme.spacing.small
@@ -144,27 +149,27 @@ local keyboard_layout =
 local keyboard_layout_widget = wrap_widget(keyboard_layout.widget)
 
 -- Battery widget
--- local create_battery_widget = require('widgets.battery')
--- local battery =
---   create_battery_widget(
---   {
---     primary = theme.color.cyan,
---     battery_empty = theme.color.red
---   },
---   {icon = theme.fonts.icon, widget = theme.fonts.widget},
---   theme.spacing.small
--- )
--- local battery_widget = wrap_widget(battery.widget)
+local create_battery_widget = require('widgets.battery')
+local battery =
+  create_battery_widget(
+  {
+    primary = theme.color.lavender,
+    battery_empty = theme.color.red
+  },
+  {icon = theme.fonts.icon, widget = theme.fonts.widget},
+  theme.spacing.small
+)
+local battery_widget = wrap_widget(battery.widget)
 
 -- Calendar
 local calendaricon = wibox.widget.textbox(string.format(
                                               '<span color="%s" font="' ..
                                                   theme.fonts.icon ..
                                                   '"></span>',
-                                              theme.color.orange))
+                                              theme.color.pink))
 local calendar = wibox.widget.textclock('<span font="' .. theme.fonts.widget ..
                                             '" color="' ..
-                                            theme.color.orange ..
+                                            theme.color.pink ..
                                             '"> %-d %b %Y (%a)</span>')
 
 -- Clock
@@ -172,10 +177,10 @@ local clockicon = wibox.widget.textbox(string.format(
                                            '<span color="%s" font="' ..
                                                theme.fonts.icon ..
                                                '"> </span>',
-                                           theme.color.red))
+                                           theme.color.sapphire))
 local clock = wibox.widget.textclock('<span font="' .. theme.fonts.widget ..
                                          '" color="' ..
-                                         theme.color.red ..
+                                         theme.color.sapphire ..
                                          '">%R</span>')
 
 theme.on_screen_connect = function(s)
