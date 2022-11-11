@@ -43,6 +43,7 @@ alias what="echo ever. 🤣😝😂😜"
 alias co="echo koliv. 😂🤪🤣😝"
 alias sus="systemctl suspend"
 alias wamo="xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput HEAD-0"
+alias inp="cd \$HOME/Data/School/INP/inp22-projekt1/ && . env/bin/activate && cd zadani/test"
 
 complete -F _complete_alias paru-r
 complete -F _complete_alias go

@@ -16,3 +16,5 @@ fi
 if [ -d "$HOME/.cargo/bin" ] ; then
   PATH="$HOME/.cargo/bin:$PATH"
 fi
+
+export PATH="$HOME/Data/Programs/Questa/questasim/linux_x86_64:$PATH"
