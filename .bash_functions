@@ -80,7 +80,7 @@ function nya() {
 }
 
 function benyky() {
-  echo "Enyky benyky, na holí pupíky, aspoň 20. 🐻🧸"
+  echo "Enyky benyky, na holý pupíky, aspoň 20. 🐻🧸"
   $(mpv ~/Data/Memes/Sounds/benyky &>/dev/null & disown)
 }
 
@@ -95,7 +95,7 @@ function amogus() {
 }
 
 # function benyky() {
-#   echo "Enyky benyky, na holí pupíky, aspoň 20. 🐻🧸"
+#   echo "Enyky benyky, na holý pupíky, aspoň 20. 🐻🧸"
 #   $(mpv ~/Data/Memes/Sounds/benyky.wav &>/dev/null & disown)
 # }
 
