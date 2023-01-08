@@ -89,6 +89,11 @@ function fthisup() {
   $(mpv ~/Data/Memes/Sounds/fthisup &>/dev/null & disown)
 }
 
+function amogus() {
+  echo "✈️ huh? SOS? SUS! AMOGUS! 🚨🎶"
+  $(mpv ~/Data/Memes/Sounds/amogus &>/dev/null & disown)
+}
+
 # function benyky() {
 #   echo "Enyky benyky, na holí pupíky, aspoň 20. 🐻🧸"
 #   $(mpv ~/Data/Memes/Sounds/benyky.wav &>/dev/null & disown)
