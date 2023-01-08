@@ -88,3 +88,21 @@ function fthisup() {
   echo "Have I fucked this up again? 😐🥹 🎸😢"
   $(mpv ~/Data/Memes/Sounds/fthisup &>/dev/null & disown)
 }
+<<<<<<< Updated upstream
+=======
+
+function amogus() {
+  echo "✈️ huh? SOS? SUS! AMOGUS! 🚨🎶"
+  $(mpv ~/Data/Memes/Sounds/amogus &>/dev/null & disown)
+}
+
+# function benyky() {
+#   echo "Enyky benyky, na holí pupíky, aspoň 20. 🐻🧸"
+#   $(mpv ~/Data/Memes/Sounds/benyky.wav &>/dev/null & disown)
+# }
+
+function neko() {
+  echo "Nyanyame nyanyajyuunyanya do no nyarabi de nyaku nyaku inyanyaku nyanyahan nyanyadai nyan nyaku nyarabete nyaganyagame. 😽😻🐱😊"
+  $(mpv ~/Data/Memes/Sounds/neko &>/dev/null & disown)
+}
+>>>>>>> Stashed changes
