@@ -38,6 +38,7 @@ function ass() {
  nasm -f elf32 -g -o "$1".o "$1".asm
  gcc -m32 -o "$1" "$1".o 
 }
+<<<<<<< Updated upstream
 
 function wcyd() {
   echo 'What can you do.' 
@@ -103,3 +104,5 @@ function neko() {
   echo "Nyanyame nyanyajyuunyanya do no nyarabi de nyaku nyaku inyanyaku nyanyahan nyanyadai nyan nyaku nyarabete nyaganyagame. 😽😻🐱😊"
   $(mpv ~/Data/Memes/Sounds/neko &>/dev/null & disown)
 }
+=======
+>>>>>>> Stashed changes
