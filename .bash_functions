@@ -38,3 +38,8 @@ function ass() {
  nasm -f elf32 -g -o "$1".o "$1".asm
  gcc -m32 -o "$1" "$1".o 
 }
+
+launch() {
+  "$@" >/dev/null 2>&1 &
+  disown
+}
