@@ -43,6 +43,7 @@ Plug('kyazdani42/nvim-web-devicons')
 Plug('iamcco/markdown-preview.nvim', {run = 'cd app && yarn install'})
 Plug('xuhdev/vim-latex-live-preview')
 Plug('nvim-telescope/telescope.nvim')
+Plug('mattn/emmet-vim')
 
 Plug('joshdick/onedark.vim')
 Plug('doki-theme/doki-theme-vim')
