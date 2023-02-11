@@ -1,4 +1,5 @@
 local bind = require('util.bind')
+local cmd = require('util.cmd')
 
 local npairs = require('nvim-autopairs')
 npairs.setup({map_bs = false})
@@ -31,4 +32,9 @@ MUtils.BS = function()
   end
 end
 bind('i', '<bs>', 'v:lua.MUtils.BS()', 'expr', 'noremap')
+
+require('which-key').setup {}
 require('trouble').setup {}
+require('nvim-ts-autotag').setup()
+
+cmd.silent(':COQnow -s')
