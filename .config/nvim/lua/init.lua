@@ -1,5 +1,4 @@
-require('plugs')
-require('plug_init')
+require('plugins')
 require('settings')
 require('lsp')
 require('init_plugins')
