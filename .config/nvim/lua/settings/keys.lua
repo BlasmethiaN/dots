@@ -10,7 +10,6 @@ local any = ''
 local insert = 'i'
 local normal = 'n'
 
-vim.g.mapleader = ' '
 bind(normal, '<space>', nop, noremap)
 
 -- Remap 0 to first non-blank character
