@@ -72,3 +72,4 @@ lsp.sumneko_lua.setup(coq_setup {
 })
 
 lsp.texlab.setup(coq_setup {})
+lsp.phpactor.setup{}
