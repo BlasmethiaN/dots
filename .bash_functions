@@ -18,6 +18,10 @@ soundcore() {
     connect AC:12:2F:E1:5F:D4
 }
 
+config_merges() {
+  config checkout laptop && config pull && config merge master && config checkout pc && config pull && config merge master && config checkout master && config push --all
+}
+
 function schedule() {
   feh ~/Data/Pics/schedule.png
 }
