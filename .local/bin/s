@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 grep ^"$1" ~/Data/Memes/Sounds/text -w | awk '{ st = index($0," ");print substr($0,st+1)}'
-mpv ~/Data/Memes/Sounds/"$1" &>/dev/null &
+mpv ~/Data/Memes/Sounds/"$1" --volume=80 &>/dev/null &
 disown
 
