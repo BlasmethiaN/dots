@@ -34,7 +34,7 @@ end, {
   description = "rofi run prompt",
   group = "launcher"
 }), awful.key({MODKEY}, "p", function()
-  awful.util.spawn("rofi -show")
+  awful.util.spawn("rofi -show window")
 end, {
   description = "rofi window switch",
   group = "launcher"
