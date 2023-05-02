@@ -53,20 +53,23 @@ lsp.jsonls.setup {}
 
 lsp.lemminx.setup {cmd = {'/usr/bin/lemminx'}}
 
-local sumneko_binary_path = 'lua-language-server'
-local sumneko_root_path = '/usr/share/lua-language-server'
+local lua_ls_binary_path = 'lua-language-server'
+local lua_ls_root_path = '/usr/share/lua-language-server'
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
-lsp.sumneko_lua.setup(coq_setup {
-  cmd = {sumneko_binary_path, '-E', sumneko_root_path .. '/main.lua'},
+lsp.lua_ls.setup(coq_setup {
+  cmd = { lua_ls_binary_path, '-E', lua_ls_root_path .. '/main.lua' },
   settings = {
     Lua = {
-      runtime = {version = 'LuaJIT', path = runtime_path},
-      diagnostics = {globals = {'vim'}},
-      workspace = {library = vim.api.nvim_get_runtime_file('', true)}
+      runtime = { version = 'LuaJIT', path = runtime_path },
+      diagnostics = { globals = { 'vim' } },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file('', true),
+        checkThirdParty = false
+      }
     }
   }
 })
