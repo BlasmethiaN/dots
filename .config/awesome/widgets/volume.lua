@@ -36,9 +36,9 @@ local create = function(colors, icon_font, spacing)
     return layout.create_span({color = color, font = icon_font, content = icon})
   end
 
-  local muted_icon = create_volume_icon('婢', true)
-  local silent_icon = create_volume_icon('', false)
-  local normal_icon = create_volume_icon('墳', false)
+  local muted_icon = create_volume_icon('󰖁', true)
+  local silent_icon = create_volume_icon('󰕿', false)
+  local normal_icon = create_volume_icon('󰕾', false)
 
   local update_volume = function()
     awful.spawn.easy_async_with_shell(

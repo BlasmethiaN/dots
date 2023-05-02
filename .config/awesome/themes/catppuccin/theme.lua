@@ -165,7 +165,7 @@ local battery_widget = wrap_widget(battery.widget)
 local calendaricon = wibox.widget.textbox(string.format(
                                               '<span color="%s" font="' ..
                                                   theme.fonts.icon ..
-                                                  '"></span>',
+                                                  '">󰃭</span>',
                                               theme.color.pink))
 local calendar = wibox.widget.textclock('<span font="' .. theme.fonts.widget ..
                                             '" color="' ..
@@ -176,7 +176,7 @@ local calendar = wibox.widget.textclock('<span font="' .. theme.fonts.widget ..
 local clockicon = wibox.widget.textbox(string.format(
                                            '<span color="%s" font="' ..
                                                theme.fonts.icon ..
-                                               '"> </span>',
+                                               '">󰅐 </span>',
                                            theme.color.sapphire))
 local clock = wibox.widget.textclock('<span font="' .. theme.fonts.widget ..
                                          '" color="' ..
