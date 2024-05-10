@@ -44,20 +44,26 @@ alias co="echo koliv. 😂🤪🤣😝"
 alias sus="systemctl suspend"
 alias wamo="xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput HEAD-0"
 alias inp="cd \$HOME/Data/School/INP/inp22-projekt1/ && . env/bin/activate && cd zadani/test"
+alias get-idf="source /opt/esp-idf/export.sh"
+
+alias run-blasphemous="SteamAppId=774361 STEAM_COMPAT_DATA_PATH=$HOME/Data/proton/compatdata/ STEAM_COMPAT_CLIENT_INSTALL_PATH=/ ~/Data/proton/GE-Proton8-3/proton waitforexitandrun ~/Data/Games/Blasphemous/steamapps/common/Blasphemous/Blasphemous.exe"
+alias run-pathfinder="SteamAppId=1725540 STEAM_COMPAT_DATA_PATH=$HOME/Data/proton/compatdata/ STEAM_COMPAT_CLIENT_INSTALL_PATH=/ ~/Data/proton/GE-Proton8-3/proton waitforexitandrun ~/Data/Games/pf/Pathfinder\ Wrath\ of\ the\ Righteous\ -\ Enhanced\ Edition/steamapps/common/Pathfinder\ Second\ Adventure/Wrath.exe"
+alias run-dune="SteamAppId=1605220 STEAM_COMPAT_DATA_PATH=$HOME/Data/proton/compatdata/ STEAM_COMPAT_CLIENT_INSTALL_PATH=/ ~/Data/proton/GE-Proton8-3/proton waitforexitandrun ~/Data/Games/Dune.Spice.Wars.Build.11640848.Win64.Public/steamapps/common/D4X/D4X.exe"
+alias run-ats="SteamAppId=1336490 STEAM_COMPAT_DATA_PATH=$HOME/Data/proton/compatdata/ STEAM_COMPAT_CLIENT_INSTALL_PATH=/ ~/Data/proton/GE-Proton8-3/proton waitforexitandrun ~/Data/Games/AgainstTheStorm/Against\ the\ Storm/steamapps/common/Against\ the\ Storm/Against\ the\ Storm.exe"
 
 complete -F _complete_alias paru-r
 complete -F _complete_alias go
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
-export BAT_THEME="OneHalfDark"
+export BAT_THEME="Catppuccin Macchiato"
 
 include ~/.bash_functions
 include ~/.profile
 
 echo
 echo
-neofetch
+hyfetch
 
 [ -f "/home/blasmesian/.ghcup/env" ] && source "/home/blasmesian/.ghcup/env" # ghcup-env
 

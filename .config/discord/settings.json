@@ -3,9 +3,10 @@
   "IS_MINIMIZED": false,
   "SKIP_HOST_UPDATE": true,
   "WINDOW_BOUNDS": {
-    "x": 13,
-    "y": 43,
-    "width": 1894,
-    "height": 1024
-  }
+    "x": 0,
+    "y": 30,
+    "width": 1920,
+    "height": 1050
+  },
+  "chromiumSwitches": {}
 }

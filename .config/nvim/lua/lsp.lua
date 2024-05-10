@@ -76,3 +76,4 @@ lsp.lua_ls.setup(coq_setup {
 
 lsp.texlab.setup(coq_setup {})
 lsp.phpactor.setup{}
+lsp.prolog_ls.setup{}

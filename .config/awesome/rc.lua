@@ -167,10 +167,32 @@ end)
 
 -- }}}
 
-
+local function is_process_running(process_name)
+    local cmd = "xwininfo -tree -root"
+    local handle = io.popen(cmd)
+    if handle then
+        local result = handle:read("*a")
+        handle:close()
+        return result:find(process_name) ~= nil
+    else
+        return false
+    end
+end
 
 -- Autostart applications
 awful.spawn.with_shell("wallpaper")
 awful.spawn.with_shell("remaps")
 awful.spawn.with_shell("picom --experimental-backends")
 awful.spawn.with_shell('killall udiskie ; udiskie')
+
+if not is_process_running('brave') then
+    awful.spawn('brave')
+end
+
+if not is_process_running('discord') then
+    awful.spawn('discord')
+end
+
+if not is_process_running('kitty') then
+    awful.spawn('kitty')
+end
