@@ -45,6 +45,7 @@ alias sus="systemctl suspend"
 alias wamo="xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput HEAD-0"
 alias inp="cd \$HOME/Data/School/INP/inp22-projekt1/ && . env/bin/activate && cd zadani/test"
 alias get-idf="source /opt/esp-idf/export.sh"
+alias cargo="cargo mommy"
 
 alias run-blasphemous="SteamAppId=774361 STEAM_COMPAT_DATA_PATH=$HOME/Data/proton/compatdata/ STEAM_COMPAT_CLIENT_INSTALL_PATH=/ ~/Data/proton/GE-Proton8-3/proton waitforexitandrun ~/Data/Games/Blasphemous/steamapps/common/Blasphemous/Blasphemous.exe"
 alias run-pathfinder="SteamAppId=1725540 STEAM_COMPAT_DATA_PATH=$HOME/Data/proton/compatdata/ STEAM_COMPAT_CLIENT_INSTALL_PATH=/ ~/Data/proton/GE-Proton8-3/proton waitforexitandrun ~/Data/Games/pf/Pathfinder\ Wrath\ of\ the\ Righteous\ -\ Enhanced\ Edition/steamapps/common/Pathfinder\ Second\ Adventure/Wrath.exe"
@@ -57,6 +58,8 @@ complete -F _complete_alias go
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export BAT_THEME="Catppuccin Macchiato"
+export CARGO_MOMMYS_MOODS="chill/ominous/thirsty/yikes"
+export CARGO_MOMMYS_PARTS="milkers"
 
 include ~/.bash_functions
 include ~/.profile
