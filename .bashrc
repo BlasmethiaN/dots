@@ -64,9 +64,7 @@ export CARGO_MOMMYS_PARTS="milkers"
 include ~/.bash_functions
 include ~/.profile
 
-echo
-echo
-hyfetch
+fastfetch --load-config ~/.config/fastfetch/main.jsonc
 
 [ -f "/home/blasmesian/.ghcup/env" ] && source "/home/blasmesian/.ghcup/env" # ghcup-env
 

@@ -3,8 +3,8 @@
 #
 
 source ~/.bashrc
-xrandr --output HDMI-0 --primary
-xrandr --output DP-1 --auto --output HDMI-0 --auto --right-of DP-1
+xrandr --output DP-0 --primary
+xrandr --output DP-0 --mode 2560x1440 --rate 144 --output HDMI-0 --auto --left-of DP-0 --dpi 110
 
 if [ -d "$HOME/.local/bin" ] ; then
 	PATH="$HOME/.local/bin:$PATH"
