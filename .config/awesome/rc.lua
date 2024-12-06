@@ -61,7 +61,7 @@ tag.connect_signal("request::default_layouts", function()
       -- awful.layout.suit.max.fullscreen,
       -- awful.layout.suit.magnifier,
       -- awful.layout.suit.corner.nw,
-      -- awful.layout.suit.floating,
+      awful.layout.suit.floating,
   })
 end)
 -- }}}
