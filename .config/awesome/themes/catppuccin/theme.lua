@@ -114,18 +114,18 @@ local wrap_widget = function(widget)
 end
 
 -- Wifi widget
--- local create_wifi_widget = require('widgets.wifi')
--- local wifi =
---   create_wifi_widget(
---   {
---     primary = theme.color.green,
---     wifi_disconnected = theme.color.red,
---     wifi_connecting = theme.color.polar_night[2]
---   },
---   {icon = theme.fonts.icon, widget = theme.fonts.widget},
---   theme.spacing.small
--- )
--- local wifi_widget = wrap_widget(wifi.widget)
+local create_wifi_widget = require('widgets.wifi')
+local wifi =
+  create_wifi_widget(
+  {
+    primary = theme.color.green,
+    wifi_disconnected = theme.color.red,
+    wifi_connecting = theme.color.polar_night[2]
+  },
+  {icon = theme.fonts.icon, widget = theme.fonts.widget},
+  theme.spacing.small
+)
+local wifi_widget = wrap_widget(wifi.widget)
 
 -- Volume widget
 local volume = create_volume_widget({
@@ -149,17 +149,17 @@ local keyboard_layout =
 local keyboard_layout_widget = wrap_widget(keyboard_layout.widget)
 
 -- Battery widget
--- local create_battery_widget = require('widgets.battery')
--- local battery =
---   create_battery_widget(
---   {
---     primary = theme.color.lavender,
---     battery_empty = theme.color.red
---   },
---   {icon = theme.fonts.icon, widget = theme.fonts.widget},
---   theme.spacing.small
--- )
--- local battery_widget = wrap_widget(battery.widget)
+local create_battery_widget = require('widgets.battery')
+local battery =
+  create_battery_widget(
+  {
+    primary = theme.color.lavender,
+    battery_empty = theme.color.red
+  },
+  {icon = theme.fonts.icon, widget = theme.fonts.widget},
+  theme.spacing.small
+)
+local battery_widget = wrap_widget(battery.widget)
 
 -- Calendar
 local calendaricon = wibox.widget.textbox(string.format(
