@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("User", {
         vim.fn.jobstart({"nvim", "--headless", "-c", "Lazy update", "-c", "q"}, {detach = true})
 
         -- Run COQ update silently
-        vim.fn.jobstart({"nvim", "--headless", "-c", "COQnow --update", "-c", "q"}, {detach = true})
+        vim.fn.jobstart({"nvim", "--headless", "-c", "COQdeps", "-c", "q"}, {detach = true})
 
         -- Run CHADdeps update silently
         vim.fn.jobstart({"nvim", "--headless", "-c", "CHADdeps", "-c", "q"}, {detach = true})
