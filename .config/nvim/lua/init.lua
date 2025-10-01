@@ -1,18 +1,14 @@
-require('plugins')
-require('settings')
-require('lsp')
-require('init_plugins')
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git", "clone", "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-vim.api.nvim_create_autocmd("User", {
-    pattern = "VeryLazy", -- Ensures Lazy.nvim is fully initialized
-    callback = function()
-        -- Run Lazy.nvim update in a background job
-        vim.fn.jobstart({"nvim", "--headless", "-c", "Lazy update", "-c", "q"}, {detach = true})
+vim.g.mapleader = " "
 
-        -- Run COQ update silently
-        vim.fn.jobstart({"nvim", "--headless", "-c", "COQdeps", "-c", "q"}, {detach = true})
-
-        -- Run CHADdeps update silently
-        vim.fn.jobstart({"nvim", "--headless", "-c", "CHADdeps", "-c", "q"}, {detach = true})
-    end,
-})
+require("lazy").setup("plugins")
+require("settings")

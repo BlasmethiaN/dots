@@ -64,13 +64,15 @@ export CARGO_MOMMYS_PARTS="milkers"
 include ~/.bash_functions
 include ~/.profile
 
-fastfetch --load-config ~/.config/fastfetch/main.jsonc
+fastfetch --config ~/.config/fastfetch/main.jsonc
 
 [ -f "/home/blasmesian/.ghcup/env" ] && source "/home/blasmesian/.ghcup/env" # ghcup-env
 
 # pnpm
 export PNPM_HOME="/home/blasmesian/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+export PATH=$JAVA_HOME/bin:$PATH
 # pnpm end
 
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh

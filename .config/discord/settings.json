@@ -8,5 +8,8 @@
     "width": 1920,
     "height": 1050
   },
-  "chromiumSwitches": {}
+  "chromiumSwitches": {},
+  "BACKGROUND_COLOR": "#2c2d32",
+  "offloadAdmControls": true,
+  "enableHardwareAcceleration": true
 }
